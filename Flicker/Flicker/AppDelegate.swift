@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        /* Create ui-view-controller instance*/
+        let homeVC = FLHomeRouter.initializeHomeController()
+        
+        /* Initiating instance of ui-navigation-controller with view-controller */
+        let navigationController = UINavigationController(rootViewController: homeVC)
+        
+        /* Setting up the root view-controller as ui-navigation-controller */
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
