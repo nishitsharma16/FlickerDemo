@@ -1,0 +1,139 @@
+//
+//  MockClasses.swift
+//  FlickerTests
+//
+//  Created by B0095764 on 1/22/19.
+//  Copyright © 2019 Mine. All rights reserved.
+//
+
+import Foundation
+import UIKit
+@testable import Flicker
+
+class MockView: FLHomePresenterOutputProtocol {
+    func showFlickerImages(imageList : [FLDataProtocol]?) {
+        
+    }
+    
+    func showError(errorMessage : String) {
+        
+    }
+}
+
+class MockInteractor: FLHomeInteratorInputProtocol {
+    
+    weak var presenter : FLHomeInteratorOutputProtocol?
+    
+    var webServiceManager : FLWebEngineDataDownloader = MockWebserviceManager()
+    
+    var imageDownloader : FLImageDownloaderProtocol = MockImageDwonloader()
+    
+    func fetchFlickerData(withQuery text : String?, withPageNumber page : Int) {
+        
+        guard let query = text else {
+            cancellAllDownloads()
+            return
+        }
+        
+        if query.count == 0 {
+            cancellAllDownloads()
+        }
+        else {
+            let requestPath = "\(WebEngineConstant.flickerServicePath)?method=\(WebEngineConstant.flickerPhotoSearchMethod)&api_key=\(WebEngineConstant.flickerPhotoAPIKey)&format=\(WebEngineConstant.flickerPhotoFormat)&nojsoncallback=1&safe_search=1&text=\(query)&page=\(page)&per_page=20"
+            
+            webServiceManager.createDataRequest(withPath: requestPath, withParam: nil, withCustomHeader: nil, withRequestType: .GET) { [weak self] (data, error) in
+                if let dataVal = data {
+                    DispatchQueue.global().async {
+                        
+                        var list : [FLDataProtocol]?
+                        
+                        if let dataObjectInfo = dataVal as? [AnyHashable : Any], let photosInfo = dataObjectInfo["photos"] as? [AnyHashable : Any], let dataList = photosInfo["photo"] as? [Any] {
+                            let builder = DataBuilder<FLModel>()
+                            list = builder.getParsedDataList(withData: dataList)
+                        }
+                        
+                        DispatchQueue.main.async {
+                            if let dataList = list {
+                                self?.presenter?.flickerDataFetched(flickerData: .success(dataList))
+                            }
+                            else {
+                                let noDataError = DataError()
+                                noDataError.errorMessage = Constants.noResultsErrorMessage
+                                self?.presenter?.flickerDataFetched(flickerData: .noData(noDataError))
+                            }
+                        }
+                    }
+                }
+                else {
+                    let err = error ?? DataError()
+                    self?.presenter?.flickerDataFetched(flickerData: .error(err))
+                }
+            }
+        }
+    }
+    
+    func cancellAllDownloads() {
+        webServiceManager.cancelAllTasks()
+    }
+    
+    func clearAllCachedData() {
+        imageDownloader.clearAllCachedData()
+    }
+}
+
+class MockWebserviceManager: FLWebEngineDataDownloader {
+    
+    func createDataRequest(withPath path : String, withParam param: [AnyHashable : Any]?, withCustomHeader headers : [String : String]?, withRequestType type : RequestType, withCompletion completion : @escaping (Any?, DataError?) -> Void) {
+        let jsonObject = self.getJSONObject(fromFile: "FlickerDataList")
+        completion(jsonObject, nil)
+    }
+    
+    func cancelAllTasks() {
+        
+    }
+    
+    private func getJSONObject(fromFile fileName : String) -> [AnyHashable : Any]? {
+        guard let pathURL = Bundle(for: type(of: self)).url(forResource: fileName, withExtension: "json") else {
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: pathURL, options: .mappedIfSafe)
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+            if let jsonResult = jsonResult as? [AnyHashable : Any] {
+                return jsonResult
+            }
+            else {
+                return nil
+            }
+        } catch {
+            // handle error
+            return nil
+        }
+    }
+}
+
+class MockImageDwonloader: FLImageDownloaderProtocol {
+    
+    func downLoadImage(withURLRequest request : URLRequest, downloadID identifier : String, successCompletion : @escaping (URLRequest, URLResponse?, UIImage?) -> Void, failureCompletion : @escaping (URLRequest, URLResponse?, Error?) -> Void) -> FLImageDownloadStatus? {
+        return nil
+    }
+    
+    func cancelDownload(forStatus downloadStatus : FLImageDownloadStatus) {
+        
+    }
+    
+    func getImage(forIdentifier identifier : String) -> UIImage? {
+        return nil
+    }
+    
+    func clearAllCachedData() {
+        
+    }
+}
+
+class MockPresenter: FLHomeInteratorOutputProtocol {
+    func flickerDataFetched(flickerData : FlickerDataFetchStatus) {
+        
+    }
+}

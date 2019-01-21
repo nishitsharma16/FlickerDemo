@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class FLHomeRouter : FLHomeRouterProtocol {
+    
     static func initializeHomeController() -> ViewController {
         let view = mainstoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         
@@ -24,7 +25,7 @@ class FLHomeRouter : FLHomeRouterProtocol {
         return view
     }
     
-    static var mainstoryboard: UIStoryboard {
+    private static var mainstoryboard: UIStoryboard {
         return UIStoryboard(name:"Main",bundle: Bundle.main)
     }
 }

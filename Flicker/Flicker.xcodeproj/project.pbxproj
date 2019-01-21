@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A03F73F21F6579600764CEC /* FlickerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A03F73E21F6579600764CEC /* FlickerData.json */; };
+		8A03F74221F657D400764CEC /* FlickerDataList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A03F74121F657D400764CEC /* FlickerDataList.json */; };
+		8A03F74421F6582200764CEC /* FlickerModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F74321F6582200764CEC /* FlickerModelTest.swift */; };
+		8A03F74721F6594C00764CEC /* FLHomePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F74621F6594C00764CEC /* FLHomePresenterTest.swift */; };
+		8A03F74A21F6650A00764CEC /* FLHomeInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F74921F6650A00764CEC /* FLHomeInteractorTest.swift */; };
+		8A03F74D21F6657600764CEC /* MockClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F74C21F6657600764CEC /* MockClasses.swift */; };
 		8A7F231521F4C32600E8A58D /* FLImageCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */; };
 		8A7F231721F4C37100E8A58D /* FLImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */; };
 		8A7F231921F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */; };
@@ -61,6 +67,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A03F73E21F6579600764CEC /* FlickerData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FlickerData.json; sourceTree = "<group>"; };
+		8A03F74121F657D400764CEC /* FlickerDataList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FlickerDataList.json; sourceTree = "<group>"; };
+		8A03F74321F6582200764CEC /* FlickerModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerModelTest.swift; sourceTree = "<group>"; };
+		8A03F74621F6594C00764CEC /* FLHomePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLHomePresenterTest.swift; sourceTree = "<group>"; };
+		8A03F74921F6650A00764CEC /* FLHomeInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLHomeInteractorTest.swift; sourceTree = "<group>"; };
+		8A03F74C21F6657600764CEC /* MockClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClasses.swift; sourceTree = "<group>"; };
 		8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageCacheProtocol.swift; sourceTree = "<group>"; };
 		8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageDownloaderProtocol.swift; sourceTree = "<group>"; };
 		8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageDownloadTaskProtocol.swift; sourceTree = "<group>"; };
@@ -126,6 +138,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A03F73D21F6577800764CEC /* FlickerModel */ = {
+			isa = PBXGroup;
+			children = (
+				8A03F73E21F6579600764CEC /* FlickerData.json */,
+				8A03F74321F6582200764CEC /* FlickerModelTest.swift */,
+			);
+			path = FlickerModel;
+			sourceTree = "<group>";
+		};
+		8A03F74021F657AB00764CEC /* FlickerDataList */ = {
+			isa = PBXGroup;
+			children = (
+				8A03F74121F657D400764CEC /* FlickerDataList.json */,
+			);
+			path = FlickerDataList;
+			sourceTree = "<group>";
+		};
+		8A03F74521F6592800764CEC /* HomePresenter */ = {
+			isa = PBXGroup;
+			children = (
+				8A03F74621F6594C00764CEC /* FLHomePresenterTest.swift */,
+			);
+			path = HomePresenter;
+			sourceTree = "<group>";
+		};
+		8A03F74821F664F000764CEC /* HomeInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				8A03F74921F6650A00764CEC /* FLHomeInteractorTest.swift */,
+			);
+			path = HomeInteractor;
+			sourceTree = "<group>";
+		};
+		8A03F74B21F6655C00764CEC /* SupportingMocks */ = {
+			isa = PBXGroup;
+			children = (
+				8A03F74C21F6657600764CEC /* MockClasses.swift */,
+			);
+			path = SupportingMocks;
+			sourceTree = "<group>";
+		};
 		8AEABFD221F39B0F005AC005 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +217,11 @@
 		8AEABFF221F39B11005AC005 /* FlickerTests */ = {
 			isa = PBXGroup;
 			children = (
+				8A03F74B21F6655C00764CEC /* SupportingMocks */,
+				8A03F74821F664F000764CEC /* HomeInteractor */,
+				8A03F74521F6592800764CEC /* HomePresenter */,
+				8A03F74021F657AB00764CEC /* FlickerDataList */,
+				8A03F73D21F6577800764CEC /* FlickerModel */,
 				8AEABFF321F39B11005AC005 /* FlickerTests.swift */,
 				8AEABFF521F39B11005AC005 /* Info.plist */,
 			);
@@ -421,6 +479,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A03F74221F657D400764CEC /* FlickerDataList.json in Resources */,
+				8A03F73F21F6579600764CEC /* FlickerData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +534,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A03F74421F6582200764CEC /* FlickerModelTest.swift in Sources */,
+				8A03F74D21F6657600764CEC /* MockClasses.swift in Sources */,
+				8A03F74721F6594C00764CEC /* FLHomePresenterTest.swift in Sources */,
 				8AEABFF421F39B11005AC005 /* FlickerTests.swift in Sources */,
+				8A03F74A21F6650A00764CEC /* FLHomeInteractorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

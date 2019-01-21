@@ -1,41 +1,56 @@
 //
-//  FLHomeInteractor.swift
-//  Flicker
+//  FLHomeInteractorTest.swift
+//  FlickerTests
 //
-//  Created by B0095764 on 1/19/19.
+//  Created by B0095764 on 1/22/19.
 //  Copyright © 2019 Mine. All rights reserved.
 //
 
-import Foundation
+import XCTest
+@testable import Flicker
 
-class FLHomeInteractor : FLHomeInteratorInputProtocol {
+class FLHomeInteractorTest: XCTestCase {
+
+    var homeInteractor : FLHomeInteractor!
     
-    weak var presenter : FLHomeInteratorOutputProtocol?
-    var webServiceManager : FLWebEngineDataDownloader = FLWebServiceManager.sharedInstance
-    var imageDownloader : FLImageDownloaderProtocol = FLImageDownloader.sharedDownloader
-    
-    func cancellAllDownloads() {
-        webServiceManager.cancelAllTasks()
+    override func setUp() {
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        homeInteractor = FLHomeInteractor()
+        homeInteractor.webServiceManager = MockWebserviceManager()
+        homeInteractor.imageDownloader = MockImageDwonloader()
     }
     
-    func clearAllCachedData() {
-        imageDownloader.clearAllCachedData()
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        homeInteractor = nil
+        super.tearDown()
     }
     
-    func fetchFlickerData(withQuery text : String?, withPageNumber page : Int) {
+    func testcCancelAllDownloads() {
+        homeInteractor.webServiceManager.cancelAllTasks()
+    }
+    
+    func testClearAllCachedData() {
+        homeInteractor.imageDownloader.clearAllCachedData()
+    }
+    
+    func testFetchFlickerData(withQuery text : String?, withPageNumber page : Int) {
         
         guard let query = text else {
-            cancellAllDownloads()
+           homeInteractor.webServiceManager.cancelAllTasks()
             return
         }
         
         if query.count == 0 {
-            cancellAllDownloads()
+            homeInteractor.webServiceManager.cancelAllTasks()
         }
         else {
             let requestPath = "\(WebEngineConstant.flickerServicePath)?method=\(WebEngineConstant.flickerPhotoSearchMethod)&api_key=\(WebEngineConstant.flickerPhotoAPIKey)&format=\(WebEngineConstant.flickerPhotoFormat)&nojsoncallback=1&safe_search=1&text=\(query)&page=\(page)&per_page=20"
             
-            webServiceManager.createDataRequest(withPath: requestPath, withParam: nil, withCustomHeader: nil, withRequestType: .GET) { [weak self] (data, error) in
+            let mockPresenter = MockPresenter()
+
+            homeInteractor.webServiceManager.createDataRequest(withPath: requestPath, withParam: nil, withCustomHeader: nil, withRequestType: .GET) { (data, error) in
                 if let dataVal = data {
                     DispatchQueue.global().async {
                         
@@ -48,21 +63,22 @@ class FLHomeInteractor : FLHomeInteratorInputProtocol {
                         
                         DispatchQueue.main.async {
                             if let dataList = list {
-                                self?.presenter?.flickerDataFetched(flickerData: .success(dataList))
+                                mockPresenter.flickerDataFetched(flickerData: .success(dataList))
                             }
                             else {
                                 let noDataError = DataError()
                                 noDataError.errorMessage = Constants.noResultsErrorMessage
-                                self?.presenter?.flickerDataFetched(flickerData: .noData(noDataError))
+                                mockPresenter.flickerDataFetched(flickerData: .noData(noDataError))
                             }
                         }
                     }
                 }
                 else {
                     let err = error ?? DataError()
-                    self?.presenter?.flickerDataFetched(flickerData: .error(err))
+                    mockPresenter.flickerDataFetched(flickerData: .error(err))
                 }
             }
         }
     }
+
 }
