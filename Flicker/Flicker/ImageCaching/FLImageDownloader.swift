@@ -25,6 +25,11 @@ final class FLImageDownloader {
 
 extension FLImageDownloader : FLImageDownloaderProtocol {
     
+    func clearAllCachedData() {
+        imageDownloadInfo.removeAll()
+        imageInMemoryCache.removeAll()
+    }
+    
     func downLoadImage(withURLRequest request : URLRequest, downloadID identifier : String, successCompletion : @escaping (URLRequest, URLResponse?, UIImage?) -> Void, failureCompletion : @escaping (URLRequest, URLResponse?, Error?) -> Void) -> FLImageDownloadStatus? {
         
         guard let urlID = request.url?.absoluteString else {

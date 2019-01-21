@@ -16,15 +16,19 @@ class FLHomeInteractor : FLHomeInteratorInputProtocol {
         FLWebServiceManager.sharedInstance.cancelAllTasks()
     }
     
+    func clearAllCachedData() {
+        FLImageDownloader.sharedDownloader.clearAllCachedData()
+    }
+    
     func fetchFlickerData(withQuery text : String?, withPageNumber page : Int) {
         
         guard let query = text else {
-            FLWebServiceManager.sharedInstance.cancelAllTasks()
+            cancellAllDownloads()
             return
         }
         
         if query.count == 0 {
-            FLWebServiceManager.sharedInstance.cancelAllTasks()
+            cancellAllDownloads()
         }
         else {
             let requestPath = "\(WebEngineConstant.flickerServicePath)?method=\(WebEngineConstant.flickerPhotoSearchMethod)&api_key=\(WebEngineConstant.flickerPhotoAPIKey)&format=\(WebEngineConstant.flickerPhotoFormat)&nojsoncallback=1&safe_search=1&text=\(query)&page=\(page)&per_page=20"

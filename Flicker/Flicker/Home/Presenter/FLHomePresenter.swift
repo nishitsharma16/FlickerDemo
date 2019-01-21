@@ -51,6 +51,7 @@ class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProto
     private func showEmptyData(withPageNumber page : Int) {
         dataListVal.removeAll()
         interactor?.cancellAllDownloads()
+        interactor?.clearAllCachedData()
         view?.showError(errorMessage: Constants.noResultsErrorMessage)
         view?.showFlickerImages(imageList: nil)
     }

@@ -9,13 +9,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Flicker/Home/Presenter/FLHomePresenter.swift"
-            timestampString = "569787246.289277"
+            filePath = "Flicker/ImageCaching/FLImageCaching.swift"
+            timestampString = "569790476.852584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "getFlickerImages(withQuery:withPageNumber:)"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "setImage(withUrl:withPlaceHolderImage:successCompletion:failureCompletion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flicker/ImageCaching/FLImageCaching.swift"
+            timestampString = "569790509.367946"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "setImage(withUrl:withPlaceHolderImage:successCompletion:failureCompletion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flicker/Home/View/Cell/FLHomeCollectionViewCell.swift"
+            timestampString = "569790940.503109"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "updateCell(withData:withStatus:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
