@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var presenter : FLHomePresenterInputProtocol?
-    var dataList = [FLDataProtocol]()
+    var dataList : [FLDataProtocol]?
     private var pageNumber : Int = 1
     
     @IBOutlet weak var collection: UICollectionView!
@@ -28,12 +28,7 @@ class ViewController: UIViewController {
 extension ViewController : FLHomePresenterOutputProtocol {
     
     func showFlickerImages(imageList : [FLDataProtocol]?) {
-        if let list = imageList {
-            dataList.append(contentsOf: list)
-        }
-        else {
-            dataList.removeAll()
-        }
+        dataList = imageList
         collection.reloadData()
     }
     
@@ -45,14 +40,14 @@ extension ViewController : FLHomePresenterOutputProtocol {
 extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dataList.count
+        return self.dataList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewConstant.CellConstant.cellID, for: indexPath) as! FLHomeCollectionViewCell
         
-        itemCell.updateCell(withData: self.dataList[indexPath.row])
+        itemCell.updateCell(withData: self.dataList?[indexPath.row])
         
         return itemCell
     }
