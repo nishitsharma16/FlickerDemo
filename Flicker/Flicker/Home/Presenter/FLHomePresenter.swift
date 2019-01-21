@@ -13,13 +13,17 @@ class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProto
     weak var view : FLHomePresenterOutputProtocol?
     var interactor : FLHomeInteratorInputProtocol?
     private var dataListVal = [FLDataProtocol]()
+    private var searchtext : String?
     
     func getFlickerImages(withQuery text : String?, withPageNumber page : Int) {
+        if let previouslySearchTest = searchtext, let currentText = text, previouslySearchTest != currentText {
+            showEmptyData(withPageNumber: page)
+        }
+        
+        searchtext = text
+        
         if let str = text {
-            if str.count == 0 {
-                showEmptyData(withPageNumber: page)
-            }
-            else {
+            if str.count > 0 {
                 interactor?.fetchFlickerData(withQuery: str, withPageNumber: page)
             }
         }
@@ -46,7 +50,7 @@ class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProto
     
     private func showEmptyData(withPageNumber page : Int) {
         dataListVal.removeAll()
-        interactor?.fetchFlickerData(withQuery: nil, withPageNumber: page)
+        interactor?.cancellAllDownloads()
         view?.showError(errorMessage: Constants.noResultsErrorMessage)
         view?.showFlickerImages(imageList: nil)
     }

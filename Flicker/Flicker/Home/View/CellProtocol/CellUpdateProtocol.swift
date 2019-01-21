@@ -14,5 +14,5 @@ import Foundation
 
 protocol CellUpdateProtocol {
     associatedtype Item
-    func updateCell(withData data : Item?)
+    func updateCell(withData data : Item?, withStatus status : Bool)
 }

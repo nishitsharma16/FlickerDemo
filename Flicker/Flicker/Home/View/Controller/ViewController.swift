@@ -47,7 +47,8 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource 
         
         let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewConstant.CellConstant.cellID, for: indexPath) as! FLHomeCollectionViewCell
         
-        itemCell.updateCell(withData: self.dataList?[indexPath.row])
+        let status = !collectionView.isDragging && !collectionView.isDecelerating
+        itemCell.updateCell(withData: self.dataList?[indexPath.row], withStatus: status)
         
         return itemCell
     }
@@ -68,6 +69,7 @@ extension ViewController : UISearchBarDelegate {
 }
 
 extension ViewController : UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
         let contentHeight = scrollView.contentSize.height
@@ -76,6 +78,35 @@ extension ViewController : UIScrollViewDelegate {
         if (scrollOffset + scrollViewHeight == contentHeight) {
             pageNumber += 1
             presenter?.getFlickerImages(withQuery: searchBar?.text , withPageNumber: pageNumber)
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            loadImagesForVisibleRows()
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        loadImagesForVisibleRows()
+    }
+}
+
+extension ViewController {
+    private func loadImagesForVisibleRows() {
+        if let list = self.dataList, list.count > 0 {
+            let visibleItems = collection.indexPathsForVisibleItems
+            for indexPath in visibleItems {
+                let iconObj = dataList?[indexPath.row]
+                if let _ = iconObj?.iconImage {
+                    
+                }
+                else {
+                    if let itemCell = collection.cellForItem(at: indexPath) as? FLHomeCollectionViewCell {
+                        itemCell.updateCell(withData: iconObj, withStatus: true)
+                    }
+                }
+            }
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /*
  {
@@ -22,7 +23,7 @@ import Foundation
  }
  */
 
-struct FLModel : DataInitializer, FLDataProtocol {
+class FLModel : DataInitializer, FLDataProtocol {
     
     private let modeId : String?
     private let owner : String?
@@ -35,16 +36,17 @@ struct FLModel : DataInitializer, FLDataProtocol {
     private let isfamily : Bool?
 
     var flickerImageURL : URL? {
-        
         return URL(string: "http://farm\(farm ?? 0).static.flickr.com/\(server ?? "")/\(modeId ?? "")_\(secret ?? "").jpg")
     }
+    
+    var iconImage : UIImage?
     
     /**
      This method will be used for initializing Planet object from JSON object.
      - Parameter data: data is the JSON object.
      */
     
-    init(withData data : [AnyHashable : Any]) {
+    required init(withData data : [AnyHashable : Any]) {
         modeId = data["id"] as? String
         owner = data["owner"] as? String
         secret = data["secret"] as? String

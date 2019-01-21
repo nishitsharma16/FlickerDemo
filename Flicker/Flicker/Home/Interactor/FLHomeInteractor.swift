@@ -12,6 +12,10 @@ class FLHomeInteractor : FLHomeInteratorInputProtocol {
     
     weak var presenter : FLHomeInteratorOutputProtocol?
 
+    func cancellAllDownloads() {
+        FLWebServiceManager.sharedInstance.cancelAllTasks()
+    }
+    
     func fetchFlickerData(withQuery text : String?, withPageNumber page : Int) {
         
         guard let query = text else {
@@ -23,7 +27,7 @@ class FLHomeInteractor : FLHomeInteratorInputProtocol {
             FLWebServiceManager.sharedInstance.cancelAllTasks()
         }
         else {
-            let requestPath = "\(WebEngineConstant.flickerServicePath)?method=\(WebEngineConstant.flickerPhotoSearchMethod)&api_key=\(WebEngineConstant.flickerPhotoAPIKey)&format=\(WebEngineConstant.flickerPhotoFormat)&nojsoncallback=1&safe_search=1&text=\(query)&page=\(page)"
+            let requestPath = "\(WebEngineConstant.flickerServicePath)?method=\(WebEngineConstant.flickerPhotoSearchMethod)&api_key=\(WebEngineConstant.flickerPhotoAPIKey)&format=\(WebEngineConstant.flickerPhotoFormat)&nojsoncallback=1&safe_search=1&text=\(query)&page=\(page)&per_page=20"
             
             FLWebServiceManager.sharedInstance.createDataRequest(withPath: requestPath, withParam: nil, withCustomHeader: nil, withRequestType: .GET) { [weak self] (data, error) in
                 if let dataVal = data {

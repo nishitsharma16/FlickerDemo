@@ -11,4 +11,5 @@ import Foundation
 protocol FLHomeInteratorInputProtocol : AnyObject {
     var presenter : FLHomeInteratorOutputProtocol? { get set }
     func fetchFlickerData(withQuery text : String?, withPageNumber page : Int)
+    func cancellAllDownloads()
 }
