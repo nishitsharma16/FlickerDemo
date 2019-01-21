@@ -29,9 +29,9 @@ class FlickerModelTest: XCTestCase {
         let flkrModel : FLModel? = jsonObject != nil ? FLModel(withData: jsonObject!) : nil
         flkrModel?.iconImage = UIImage()
         
-        XCTAssertNotNil(flkrModel, "Planet Found nil")
-        XCTAssertNotNil(flkrModel?.flickerImageURL, "Planet Name Found nil")
-        XCTAssertNotNil(flkrModel?.iconImage, "Planet Climate Found nil")
+        XCTAssertNotNil(flkrModel, "Flicker Model Found nil")
+        XCTAssertNotNil(flkrModel?.flickerImageURL, "Flicker Image URL Found nil")
+        XCTAssertNotNil(flkrModel?.iconImage, "Flicker Icon Image Found nil")
     }
     
     private func getJSONObject(fromFile fileName : String) -> [AnyHashable : Any]? {

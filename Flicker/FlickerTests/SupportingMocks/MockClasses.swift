@@ -132,7 +132,15 @@ class MockImageDwonloader: FLImageDownloaderProtocol {
     }
 }
 
-class MockPresenter: FLHomeInteratorOutputProtocol {
+class MockPresenter: FLHomeInteratorOutputProtocol, FLHomePresenterInputProtocol {
+    
+    var view : FLHomePresenterOutputProtocol?
+    var interactor : FLHomeInteratorInputProtocol?
+    
+    func getFlickerImages(withQuery text : String?, withPageNumber page : Int) {
+        
+    }
+    
     func flickerDataFetched(flickerData : FlickerDataFetchStatus) {
         
     }

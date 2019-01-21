@@ -22,8 +22,13 @@ class FLURLSessionManager {
 
 extension FLURLSessionManager : FLURLSessionManagerProtocol {
     
+    @discardableResult
     func dataTask(withURLStr urlStr : String, requestType type: RequestType, param paramVal: [AnyHashable : Any]?, headers headerVal: [String : String]?, successHander successBlock: ((URLSessionDataTask?, Any?) -> Void)?, failureHandler failureBlock: ((URLSessionDataTask?, Error?) -> Void)?) -> URLSessionDataTask? {
+        
         guard let urlReq = URL(string: urlStr) else {
+            if let failure = failureBlock {
+                failure(nil, DataError())
+            }
             return nil
         }
         
@@ -31,9 +36,7 @@ extension FLURLSessionManager : FLURLSessionManagerProtocol {
         request.httpMethod = requestMethod(withRequestType: type)
         if let customHeader = headerVal {
             for (key, value) in customHeader {
-                if let _ = request.value(forHTTPHeaderField: key)
-                {
-                    
+                if let _ = request.value(forHTTPHeaderField: key) {
                 }
                 else {
                     request.setValue(value, forHTTPHeaderField: key)
@@ -52,17 +55,13 @@ extension FLURLSessionManager : FLURLSessionManagerProtocol {
         
         var task : URLSessionDataTask?
         task = dataTask(withRequest: request) { (response, data, error) in
-            if let dataError = error
-            {
-                if let failure = failureBlock
-                {
+            if let dataError = error {
+                if let failure = failureBlock {
                     failure(task, dataError)
                 }
             }
-            else
-            {
-                if let success = successBlock
-                {
+            else {
+                if let success = successBlock {
                     success(task, data)
                 }
             }
@@ -71,6 +70,7 @@ extension FLURLSessionManager : FLURLSessionManagerProtocol {
         return task
     }
     
+    @discardableResult
     func dataTask(withRequest reuest : URLRequest, withCompletion completion : ((URLResponse?, Any?, Error?) -> Void)?) -> URLSessionDataTask {
         let dataTask = urlSession.dataTask(with: reuest) { (data, response, error) in
             

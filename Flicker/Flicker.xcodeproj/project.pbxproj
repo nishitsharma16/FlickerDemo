@@ -13,6 +13,9 @@
 		8A03F74721F6594C00764CEC /* FLHomePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F74621F6594C00764CEC /* FLHomePresenterTest.swift */; };
 		8A03F74A21F6650A00764CEC /* FLHomeInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F74921F6650A00764CEC /* FLHomeInteractorTest.swift */; };
 		8A03F74D21F6657600764CEC /* MockClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F74C21F6657600764CEC /* MockClasses.swift */; };
+		8A03F75021F66D7D00764CEC /* FLHomeRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F74F21F66D7D00764CEC /* FLHomeRouterTest.swift */; };
+		8A03F75421F6715200764CEC /* FLSessionManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F75321F6715200764CEC /* FLSessionManagerTest.swift */; };
+		8A03F75621F6716700764CEC /* FLWebServiceManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F75521F6716700764CEC /* FLWebServiceManagerTest.swift */; };
 		8A7F231521F4C32600E8A58D /* FLImageCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */; };
 		8A7F231721F4C37100E8A58D /* FLImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */; };
 		8A7F231921F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */; };
@@ -29,7 +32,6 @@
 		8AEABFE421F39B0F005AC005 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEABFE221F39B0F005AC005 /* Main.storyboard */; };
 		8AEABFE621F39B11005AC005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AEABFE521F39B11005AC005 /* Assets.xcassets */; };
 		8AEABFE921F39B11005AC005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEABFE721F39B11005AC005 /* LaunchScreen.storyboard */; };
-		8AEABFF421F39B11005AC005 /* FlickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEABFF321F39B11005AC005 /* FlickerTests.swift */; };
 		8AEAC00521F39C81005AC005 /* FLWebEngineDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEAC00021F39C80005AC005 /* FLWebEngineDataDownloader.swift */; };
 		8AEAC00621F39C81005AC005 /* FLWebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEAC00221F39C80005AC005 /* FLWebServiceManager.swift */; };
 		8AEAC00721F39C81005AC005 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEAC00421F39C80005AC005 /* DataError.swift */; };
@@ -73,6 +75,9 @@
 		8A03F74621F6594C00764CEC /* FLHomePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLHomePresenterTest.swift; sourceTree = "<group>"; };
 		8A03F74921F6650A00764CEC /* FLHomeInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLHomeInteractorTest.swift; sourceTree = "<group>"; };
 		8A03F74C21F6657600764CEC /* MockClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClasses.swift; sourceTree = "<group>"; };
+		8A03F74F21F66D7D00764CEC /* FLHomeRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLHomeRouterTest.swift; sourceTree = "<group>"; };
+		8A03F75321F6715200764CEC /* FLSessionManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLSessionManagerTest.swift; sourceTree = "<group>"; };
+		8A03F75521F6716700764CEC /* FLWebServiceManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLWebServiceManagerTest.swift; sourceTree = "<group>"; };
 		8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageCacheProtocol.swift; sourceTree = "<group>"; };
 		8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageDownloaderProtocol.swift; sourceTree = "<group>"; };
 		8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageDownloadTaskProtocol.swift; sourceTree = "<group>"; };
@@ -92,7 +97,6 @@
 		8AEABFE821F39B11005AC005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AEABFEA21F39B11005AC005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AEABFEF21F39B11005AC005 /* FlickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AEABFF321F39B11005AC005 /* FlickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerTests.swift; sourceTree = "<group>"; };
 		8AEABFF521F39B11005AC005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AEAC00021F39C80005AC005 /* FLWebEngineDataDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLWebEngineDataDownloader.swift; sourceTree = "<group>"; };
 		8AEAC00221F39C80005AC005 /* FLWebServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLWebServiceManager.swift; sourceTree = "<group>"; };
@@ -179,6 +183,30 @@
 			path = SupportingMocks;
 			sourceTree = "<group>";
 		};
+		8A03F74E21F66D5800764CEC /* HomeRouter */ = {
+			isa = PBXGroup;
+			children = (
+				8A03F74F21F66D7D00764CEC /* FLHomeRouterTest.swift */,
+			);
+			path = HomeRouter;
+			sourceTree = "<group>";
+		};
+		8A03F75121F6713400764CEC /* SessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				8A03F75321F6715200764CEC /* FLSessionManagerTest.swift */,
+			);
+			path = SessionManager;
+			sourceTree = "<group>";
+		};
+		8A03F75221F6713C00764CEC /* WebServiceManager */ = {
+			isa = PBXGroup;
+			children = (
+				8A03F75521F6716700764CEC /* FLWebServiceManagerTest.swift */,
+			);
+			path = WebServiceManager;
+			sourceTree = "<group>";
+		};
 		8AEABFD221F39B0F005AC005 = {
 			isa = PBXGroup;
 			children = (
@@ -200,11 +228,11 @@
 		8AEABFDD21F39B0F005AC005 /* Flicker */ = {
 			isa = PBXGroup;
 			children = (
+				8AEAC00821F39CBD005AC005 /* Constants */,
+				8AEABFFE21F39C80005AC005 /* Network */,
 				8AEAC03321F3D7C6005AC005 /* ImageCaching */,
 				8AEAC02921F3B1FC005AC005 /* DataBuilder */,
 				8AEAC00B21F39EC8005AC005 /* Home */,
-				8AEAC00821F39CBD005AC005 /* Constants */,
-				8AEABFFE21F39C80005AC005 /* Network */,
 				8AEABFDE21F39B0F005AC005 /* AppDelegate.swift */,
 				8AEABFE221F39B0F005AC005 /* Main.storyboard */,
 				8AEABFE521F39B11005AC005 /* Assets.xcassets */,
@@ -217,12 +245,14 @@
 		8AEABFF221F39B11005AC005 /* FlickerTests */ = {
 			isa = PBXGroup;
 			children = (
+				8A03F75221F6713C00764CEC /* WebServiceManager */,
+				8A03F75121F6713400764CEC /* SessionManager */,
+				8A03F74E21F66D5800764CEC /* HomeRouter */,
 				8A03F74B21F6655C00764CEC /* SupportingMocks */,
 				8A03F74821F664F000764CEC /* HomeInteractor */,
 				8A03F74521F6592800764CEC /* HomePresenter */,
 				8A03F74021F657AB00764CEC /* FlickerDataList */,
 				8A03F73D21F6577800764CEC /* FlickerModel */,
-				8AEABFF321F39B11005AC005 /* FlickerTests.swift */,
 				8AEABFF521F39B11005AC005 /* Info.plist */,
 			);
 			path = FlickerTests;
@@ -534,10 +564,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A03F75421F6715200764CEC /* FLSessionManagerTest.swift in Sources */,
 				8A03F74421F6582200764CEC /* FlickerModelTest.swift in Sources */,
+				8A03F75021F66D7D00764CEC /* FLHomeRouterTest.swift in Sources */,
 				8A03F74D21F6657600764CEC /* MockClasses.swift in Sources */,
+				8A03F75621F6716700764CEC /* FLWebServiceManagerTest.swift in Sources */,
 				8A03F74721F6594C00764CEC /* FLHomePresenterTest.swift in Sources */,
-				8AEABFF421F39B11005AC005 /* FlickerTests.swift in Sources */,
 				8A03F74A21F6650A00764CEC /* FLHomeInteractorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
