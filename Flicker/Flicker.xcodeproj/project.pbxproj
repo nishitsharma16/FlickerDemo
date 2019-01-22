@@ -21,6 +21,8 @@
 		8A43E31D21F76E2E0015D275 /* FLHomeCollectionCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A43E31C21F76E2E0015D275 /* FLHomeCollectionCellTest.swift */; };
 		8A43E32021F78F810015D275 /* FLImageCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A43E31F21F78F810015D275 /* FLImageCacheTest.swift */; };
 		8A43E32321F79A8B0015D275 /* FLWebServiceObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A43E32221F79A8B0015D275 /* FLWebServiceObjectTest.swift */; };
+		8A43E32B21F7B7FB0015D275 /* FlickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A43E32A21F7B7FB0015D275 /* FlickerUITests.swift */; };
+		8A43E33421F7BF8C0015D275 /* FLViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A43E33321F7BF8C0015D275 /* FLViewControllerTest.swift */; };
 		8A7F231521F4C32600E8A58D /* FLImageCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */; };
 		8A7F231721F4C37100E8A58D /* FLImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */; };
 		8A7F231921F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */; };
@@ -64,6 +66,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8A43E32D21F7B7FB0015D275 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AEABFD321F39B0F005AC005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AEABFDA21F39B0F005AC005;
+			remoteInfo = Flicker;
+		};
 		8AEABFF021F39B11005AC005 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8AEABFD321F39B0F005AC005 /* Project object */;
@@ -88,6 +97,10 @@
 		8A43E31C21F76E2E0015D275 /* FLHomeCollectionCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLHomeCollectionCellTest.swift; sourceTree = "<group>"; };
 		8A43E31F21F78F810015D275 /* FLImageCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageCacheTest.swift; sourceTree = "<group>"; };
 		8A43E32221F79A8B0015D275 /* FLWebServiceObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLWebServiceObjectTest.swift; sourceTree = "<group>"; };
+		8A43E32821F7B7FA0015D275 /* FlickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A43E32A21F7B7FB0015D275 /* FlickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerUITests.swift; sourceTree = "<group>"; };
+		8A43E32C21F7B7FB0015D275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A43E33321F7BF8C0015D275 /* FLViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLViewControllerTest.swift; sourceTree = "<group>"; };
 		8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageCacheProtocol.swift; sourceTree = "<group>"; };
 		8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageDownloaderProtocol.swift; sourceTree = "<group>"; };
 		8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageDownloadTaskProtocol.swift; sourceTree = "<group>"; };
@@ -135,6 +148,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8A43E32521F7B7FA0015D275 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8AEABFD821F39B0F005AC005 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,11 +277,29 @@
 			path = WebServiceObject;
 			sourceTree = "<group>";
 		};
+		8A43E32921F7B7FB0015D275 /* FlickerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8A43E32A21F7B7FB0015D275 /* FlickerUITests.swift */,
+				8A43E32C21F7B7FB0015D275 /* Info.plist */,
+			);
+			path = FlickerUITests;
+			sourceTree = "<group>";
+		};
+		8A43E33221F7BF740015D275 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A43E33321F7BF8C0015D275 /* FLViewControllerTest.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		8AEABFD221F39B0F005AC005 = {
 			isa = PBXGroup;
 			children = (
 				8AEABFDD21F39B0F005AC005 /* Flicker */,
 				8AEABFF221F39B11005AC005 /* FlickerTests */,
+				8A43E32921F7B7FB0015D275 /* FlickerUITests */,
 				8AEABFDC21F39B0F005AC005 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -271,6 +309,7 @@
 			children = (
 				8AEABFDB21F39B0F005AC005 /* Flicker.app */,
 				8AEABFEF21F39B11005AC005 /* FlickerTests.xctest */,
+				8A43E32821F7B7FA0015D275 /* FlickerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -295,6 +334,7 @@
 		8AEABFF221F39B11005AC005 /* FlickerTests */ = {
 			isa = PBXGroup;
 			children = (
+				8A43E33221F7BF740015D275 /* Controller */,
 				8A43E32121F79A6F0015D275 /* WebServiceObject */,
 				8A43E31E21F78F5B0015D275 /* ImageCache */,
 				8A43E31B21F76E110015D275 /* HomeCell */,
@@ -475,6 +515,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8A43E32721F7B7FA0015D275 /* FlickerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A43E32F21F7B7FB0015D275 /* Build configuration list for PBXNativeTarget "FlickerUITests" */;
+			buildPhases = (
+				8A43E32421F7B7FA0015D275 /* Sources */,
+				8A43E32521F7B7FA0015D275 /* Frameworks */,
+				8A43E32621F7B7FA0015D275 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A43E32E21F7B7FB0015D275 /* PBXTargetDependency */,
+			);
+			name = FlickerUITests;
+			productName = FlickerUITests;
+			productReference = 8A43E32821F7B7FA0015D275 /* FlickerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		8AEABFDA21F39B0F005AC005 /* Flicker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AEABFF821F39B11005AC005 /* Build configuration list for PBXNativeTarget "Flicker" */;
@@ -520,6 +578,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Mine;
 				TargetAttributes = {
+					8A43E32721F7B7FA0015D275 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 8AEABFDA21F39B0F005AC005;
+					};
 					8AEABFDA21F39B0F005AC005 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -544,11 +606,19 @@
 			targets = (
 				8AEABFDA21F39B0F005AC005 /* Flicker */,
 				8AEABFEE21F39B11005AC005 /* FlickerTests */,
+				8A43E32721F7B7FA0015D275 /* FlickerUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8A43E32621F7B7FA0015D275 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8AEABFD921F39B0F005AC005 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,6 +642,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8A43E32421F7B7FA0015D275 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A43E32B21F7B7FB0015D275 /* FlickerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8AEABFD721F39B0F005AC005 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -619,6 +697,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A43E33421F7BF8C0015D275 /* FLViewControllerTest.swift in Sources */,
 				8A03F75421F6715200764CEC /* FLSessionManagerTest.swift in Sources */,
 				8A43E32021F78F810015D275 /* FLImageCacheTest.swift in Sources */,
 				8A03F74421F6582200764CEC /* FlickerModelTest.swift in Sources */,
@@ -637,6 +716,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8A43E32E21F7B7FB0015D275 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AEABFDA21F39B0F005AC005 /* Flicker */;
+			targetProxy = 8A43E32D21F7B7FB0015D275 /* PBXContainerItemProxy */;
+		};
 		8AEABFF121F39B11005AC005 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8AEABFDA21F39B0F005AC005 /* Flicker */;
@@ -664,6 +748,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8A43E33021F7B7FB0015D275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlickerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Mine.FlickerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flicker;
+			};
+			name = Debug;
+		};
+		8A43E33121F7B7FB0015D275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlickerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Mine.FlickerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flicker;
+			};
+			name = Release;
+		};
 		8AEABFF621F39B11005AC005 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -861,6 +981,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8A43E32F21F7B7FB0015D275 /* Build configuration list for PBXNativeTarget "FlickerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A43E33021F7B7FB0015D275 /* Debug */,
+				8A43E33121F7B7FB0015D275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8AEABFD621F39B0F005AC005 /* Build configuration list for PBXProject "Flicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

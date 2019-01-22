@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flicker/ImageCaching/FLImageCaching.swift"
-            timestampString = "569881781.2727081"
+            timestampString = "569886365.8283859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickerTests/SupportingMocks/MockClasses.swift"
-            timestampString = "569881781.273035"
+            timestampString = "569886365.834567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickerTests/SupportingMocks/MockClasses.swift"
-            timestampString = "569881781.273249"
+            timestampString = "569886365.836778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickerTests/FlickerModel/FlickerModelTest.swift"
-            timestampString = "569881781.27338"
+            timestampString = "569886365.838498"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -122,7 +122,7 @@
                   moduleName = "Flicker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/B0095764/Desktop/Dev_Assignment/FlickerDemo/FlickerDemo/Flicker/Flicker/Network/SessionManager/FLURLSessionManager.swift"
-                  timestampString = "569874847.886547"
+                  timestampString = "569885187.5253969"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "77"
@@ -137,7 +137,7 @@
                   moduleName = "Flicker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/B0095764/Desktop/Dev_Assignment/FlickerDemo/FlickerDemo/Flicker/Flicker/Network/SessionManager/FLURLSessionManager.swift"
-                  timestampString = "569874847.88903"
+                  timestampString = "569885187.528038"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "77"
@@ -145,6 +145,22 @@
                   offsetFromSymbolStart = "61">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickerTests/Controller/FLViewControllerTest.swift"
+            timestampString = "569886365.841933"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "setUp()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

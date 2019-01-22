@@ -39,6 +39,16 @@
                ReferencedContainer = "container:Flicker.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8A43E32721F7B7FA0015D275"
+               BuildableName = "FlickerUITests.xctest"
+               BlueprintName = "FlickerUITests"
+               ReferencedContainer = "container:Flicker.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
