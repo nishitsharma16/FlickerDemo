@@ -19,3 +19,5 @@ App has following features:
 8.   Min iOS Support is iOS 12.1 and Swift 4.2.
 
 9.   Code is properly documented.
+
+10. App has code coverage of 82.1%.
