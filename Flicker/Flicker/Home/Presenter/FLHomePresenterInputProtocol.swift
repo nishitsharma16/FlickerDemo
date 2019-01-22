@@ -7,9 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol FLHomePresenterInputProtocol : AnyObject {
     var view : FLHomePresenterOutputProtocol? { get set }
+    var numberOfItemsPerRow : Int { get }
     var interactor : FLHomeInteratorInputProtocol? { get set }
     func getFlickerImages(withQuery text : String?, withPageNumber page : Int)
+    func numberOfItems(forScreenSize size : CGSize, itemSize : CGSize)
+    func itemSize(withScreenWidth width : CGFloat) -> CGSize
 }

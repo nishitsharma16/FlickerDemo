@@ -30,7 +30,7 @@ extension FLImageDownloader : FLImageDownloaderProtocol {
         imageInMemoryCache.removeAll()
     }
     
-    func downLoadImage(withURLRequest request : URLRequest, downloadID identifier : String, successCompletion : @escaping (URLRequest, URLResponse?, UIImage?) -> Void, failureCompletion : @escaping (URLRequest, URLResponse?, Error?) -> Void) -> FLImageDownloadStatus? {
+    func downLoadImage(withURLRequest request : URLRequest, downloadID identifier : String, ofSize newSize : CGSize, successCompletion : @escaping (URLRequest, URLResponse?, UIImage?) -> Void, failureCompletion : @escaping (URLRequest, URLResponse?, Error?) -> Void) -> FLImageDownloadStatus? {
         
         guard let urlID = request.url?.absoluteString else {
             let err = DataError()
@@ -69,9 +69,14 @@ extension FLImageDownloader : FLImageDownloaderProtocol {
                                         }
                                         return
                                     }
-                                    self?.serialyAddInMemoryCachedImage(withIdentifier: urlID, image: image)
                                     DispatchQueue.main.async {
-                                        handler.successCallBack(request, response, image)
+                                        if let newImage = self?.convertImageToGivenSize(image: image, newSize: newSize) {
+                                            self?.serialyAddInMemoryCachedImage(withIdentifier: urlID, image: newImage)
+                                            handler.successCallBack(request, response, newImage)
+                                        }
+                                        else {
+                                            handler.successCallBack(request, response, nil)
+                                        }
                                     }
                                 }
                                 self?.serialyRemoveTask(withIdentifier: urlID)
@@ -135,6 +140,14 @@ extension FLImageDownloader {
         serialQueue.sync {
             removeImage(withIdentifier: identifier)
         }
+    }
+    
+    private func convertImageToGivenSize(image : UIImage, newSize : CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
+        let newImage : UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     private func serialyRemoveTask(withIdentifier identifier : String) {

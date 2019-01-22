@@ -41,15 +41,15 @@ extension UIImageView : FLImageCacheProtocol {
         }
     }
     
-    func setImage(withUrl imageURL : URL) {
-        setImage(withUrl: imageURL, withPlaceHolderImage: nil)
+    func setImage(withUrl imageURL : URL, ofSize newSize : CGSize) {
+        setImage(withUrl: imageURL, ofSize: newSize, withPlaceHolderImage: nil)
     }
     
-    func setImage(withUrl imageURL : URL, withPlaceHolderImage placeHolderImage : UIImage?) {
-        setImage(withUrl: imageURL, withPlaceHolderImage: placeHolderImage, successCompletion: nil, failureCompletion: nil)
+    func setImage(withUrl imageURL : URL, ofSize newSize : CGSize, withPlaceHolderImage placeHolderImage : UIImage?) {
+        setImage(withUrl: imageURL, ofSize: newSize, withPlaceHolderImage: placeHolderImage, successCompletion: nil, failureCompletion: nil)
     }
     
-    func setImage(withUrl imageURL : URL, withPlaceHolderImage placeHolderImage : UIImage?, successCompletion successCallback : ((URLRequest, URLResponse?, UIImage?) -> Void)?, failureCompletion failureCallback : ((URLRequest, URLResponse?, Error?) -> Void)?)  {
+    func setImage(withUrl imageURL : URL, ofSize newSize : CGSize, withPlaceHolderImage placeHolderImage : UIImage?, successCompletion successCallback : ((URLRequest, URLResponse?, UIImage?) -> Void)?, failureCompletion failureCallback : ((URLRequest, URLResponse?, Error?) -> Void)?)  {
         
         if checkDownloadInProgress(forPath: imageURL.absoluteString) {
             return
@@ -75,7 +75,7 @@ extension UIImageView : FLImageCacheProtocol {
 
             let downloadId = UUID().uuidString
             
-            let downloadStatus = imageDownloader.downLoadImage(withURLRequest: request, downloadID: downloadId, successCompletion: { [weak self] (request, response, image) in
+            let downloadStatus = imageDownloader.downLoadImage(withURLRequest: request, downloadID: downloadId, ofSize : newSize, successCompletion: { [weak self] (request, response, image) in
                 if self?.imageDownloadStatus?.downloadID == downloadId {
                     if let success = successCallback {
                         success(request, response, image)

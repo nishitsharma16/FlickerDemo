@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol FLImageCacheProtocol {
-    func setImage(withUrl imageURL : URL)
-    func setImage(withUrl imageURL : URL, withPlaceHolderImage placeHolderImage : UIImage?)
-    func setImage(withUrl imageURL : URL, withPlaceHolderImage placeHolderImage : UIImage?, successCompletion successCallback : ((URLRequest, URLResponse?, UIImage?) -> Void)?, failureCompletion failureCallback : ((URLRequest, URLResponse?, Error?) -> Void)?)
+    func setImage(withUrl imageURL : URL, ofSize newSize : CGSize)
+    func setImage(withUrl imageURL : URL, ofSize newSize : CGSize, withPlaceHolderImage placeHolderImage : UIImage?)
+    func setImage(withUrl imageURL : URL, ofSize newSize : CGSize, withPlaceHolderImage placeHolderImage : UIImage?, successCompletion successCallback : ((URLRequest, URLResponse?, UIImage?) -> Void)?, failureCompletion failureCallback : ((URLRequest, URLResponse?, Error?) -> Void)?)
 }

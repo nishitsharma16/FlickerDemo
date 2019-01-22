@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProtocol {
     
@@ -14,7 +15,19 @@ class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProto
     var interactor : FLHomeInteratorInputProtocol?
     private var dataListVal = [FLDataProtocol]()
     private var searchtext : String?
+    private var numberOfItems : Int = 0
     
+    var numberOfItemsPerRow : Int {
+        return PresenterConstant.numberOfItemsPerRow
+    }
+    
+    func itemSize(withScreenWidth width : CGFloat) -> CGSize {
+        let itemWidth = Int(Double(width)/Double(numberOfItemsPerRow))
+        let itemHeight = itemWidth
+        let itemSize = CGSize(width: itemWidth, height: itemHeight)
+        return itemSize
+    }
+
     func getFlickerImages(withQuery text : String?, withPageNumber page : Int) {
         if let previouslySearchTest = searchtext, let currentText = text, previouslySearchTest != currentText {
             showEmptyData(withPageNumber: page)
@@ -24,7 +37,7 @@ class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProto
         
         if let str = text {
             if str.count > 0 {
-                interactor?.fetchFlickerData(withQuery: str, withPageNumber: page)
+                interactor?.fetchFlickerData(withQuery: str, withPageNumber: page, itemsPerPage: numberOfItems)
             }
         }
         else {
@@ -46,6 +59,22 @@ class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProto
             dataListVal.removeAll()
             view?.showError(errorMessage: error.errorMessage)
         }
+    }
+    
+    func numberOfItems(forScreenSize size : CGSize, itemSize : CGSize) {
+        let width = size.width
+        let height = size.height
+        let itemCountPerRow = Int(width/itemSize.width)
+        numberOfItems = itemCountPerRow * Int(height/itemSize.width) + 2
+    }
+}
+
+// Private Method Extension
+
+extension FLHomePresenter {
+    
+    private struct PresenterConstant {
+        static let numberOfItemsPerRow = 3
     }
     
     private func showEmptyData(withPageNumber page : Int) {

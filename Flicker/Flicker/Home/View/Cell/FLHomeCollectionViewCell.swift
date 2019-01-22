@@ -23,7 +23,8 @@ class FLHomeCollectionViewCell: UICollectionViewCell, CellUpdateProtocol {
         else {
             if status {
                 if let url = data?.flickerImageURL {
-                    cellImageView.setImage(withUrl: url, withPlaceHolderImage: UIImage(named: "placeholder"), successCompletion: { [weak self, weak data] (request, response, image) in
+                    let size = cellImageView.bounds.size
+                    cellImageView.setImage(withUrl: url, ofSize : size, withPlaceHolderImage: UIImage(named: "placeholder"), successCompletion: { [weak self, weak data] (request, response, image) in
                         data?.iconImage = image
                         self?.cellImageView.image = image
                     }) { (request, response, error) in

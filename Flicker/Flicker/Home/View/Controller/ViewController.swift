@@ -21,7 +21,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Flicker Image Search"
-        self.collection.register(UINib(nibName: ViewConstant.CellConstant.cellNibName, bundle: nil), forCellWithReuseIdentifier: ViewConstant.CellConstant.cellID)
+        
+        let screenSize = collection.contentSize
+        let flowLayout : UICollectionViewFlowLayout? = collection?.collectionViewLayout as? UICollectionViewFlowLayout
+        flowLayout?.minimumLineSpacing = 5
+        flowLayout?.minimumInteritemSpacing = 0
+        
+        if let presenterVal = presenter {
+            let itemSize = presenterVal.itemSize(withScreenWidth: screenSize.width)
+            presenterVal.numberOfItems(forScreenSize: CGSize(width: screenSize.width, height: view.bounds.size.height), itemSize: itemSize)
+            flowLayout?.itemSize = itemSize
+        }
+        
+        collection.register(UINib(nibName: ViewConstant.CellConstant.cellNibName, bundle: nil), forCellWithReuseIdentifier: ViewConstant.CellConstant.cellID)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collection.collectionViewLayout.invalidateLayout()
     }
 }
 
@@ -52,7 +69,6 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource 
         
         return itemCell
     }
-    
     
     // MARK: Collection View Delegate
     
