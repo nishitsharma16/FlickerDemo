@@ -21,3 +21,5 @@ App has following features:
 9.   Code is properly documented.
 
 10. App has code coverage of 82.1%.
+
+11. Designed with VIPER design pattern.
