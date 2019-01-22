@@ -20,13 +20,6 @@ class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProto
     var numberOfItemsPerRow : Int {
         return PresenterConstant.numberOfItemsPerRow
     }
-    
-    func itemSize(withScreenWidth width : CGFloat) -> CGSize {
-        let itemWidth = Int(Double(width)/Double(numberOfItemsPerRow))
-        let itemHeight = itemWidth
-        let itemSize = CGSize(width: itemWidth, height: itemHeight)
-        return itemSize
-    }
 
     func getFlickerImages(withQuery text : String?, withPageNumber page : Int) {
         if let previouslySearchTest = searchtext, let currentText = text, previouslySearchTest != currentText {
@@ -59,6 +52,13 @@ class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProto
             dataListVal.removeAll()
             view?.showError(errorMessage: error.errorMessage)
         }
+    }
+    
+    func itemSize(withScreenWidth width : CGFloat) -> CGSize {
+        let itemWidth = Int(Double(width)/Double(numberOfItemsPerRow))
+        let itemHeight = itemWidth
+        let itemSize = CGSize(width: itemWidth, height: itemHeight)
+        return itemSize
     }
     
     func numberOfItems(forScreenSize size : CGSize, itemSize : CGSize) {

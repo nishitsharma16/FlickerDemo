@@ -22,14 +22,23 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Flicker Image Search"
         
-        let screenSize = collection.contentSize
+        let screenSize = view.bounds.size
         let flowLayout : UICollectionViewFlowLayout? = collection?.collectionViewLayout as? UICollectionViewFlowLayout
         flowLayout?.minimumLineSpacing = 5
-        flowLayout?.minimumInteritemSpacing = 0
+        flowLayout?.minimumInteritemSpacing = 5
         
         if let presenterVal = presenter {
-            let itemSize = presenterVal.itemSize(withScreenWidth: screenSize.width)
-            presenterVal.numberOfItems(forScreenSize: CGSize(width: screenSize.width, height: view.bounds.size.height), itemSize: itemSize)
+            
+            let interSpacing = flowLayout?.minimumInteritemSpacing ?? 0
+            let inset = flowLayout?.sectionInset
+            let leftPadding = inset?.left ?? 0
+            let rightPadding = inset?.right ?? 0
+            
+            let val = CGFloat(presenterVal.numberOfItemsPerRow - 1)
+            let availableWidth = screenSize.width - (val*interSpacing + leftPadding + rightPadding)
+            
+            let itemSize = presenterVal.itemSize(withScreenWidth: availableWidth)
+            presenterVal.numberOfItems(forScreenSize: CGSize(width: availableWidth, height: screenSize.height), itemSize: itemSize)
             flowLayout?.itemSize = itemSize
         }
         
