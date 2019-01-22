@@ -20,6 +20,7 @@
 		8A43E31A21F76CDC0015D275 /* FLDataErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A43E31921F76CDC0015D275 /* FLDataErrorTest.swift */; };
 		8A43E31D21F76E2E0015D275 /* FLHomeCollectionCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A43E31C21F76E2E0015D275 /* FLHomeCollectionCellTest.swift */; };
 		8A43E32021F78F810015D275 /* FLImageCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A43E31F21F78F810015D275 /* FLImageCacheTest.swift */; };
+		8A43E32321F79A8B0015D275 /* FLWebServiceObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A43E32221F79A8B0015D275 /* FLWebServiceObjectTest.swift */; };
 		8A7F231521F4C32600E8A58D /* FLImageCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */; };
 		8A7F231721F4C37100E8A58D /* FLImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */; };
 		8A7F231921F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */; };
@@ -86,6 +87,7 @@
 		8A43E31921F76CDC0015D275 /* FLDataErrorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLDataErrorTest.swift; sourceTree = "<group>"; };
 		8A43E31C21F76E2E0015D275 /* FLHomeCollectionCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLHomeCollectionCellTest.swift; sourceTree = "<group>"; };
 		8A43E31F21F78F810015D275 /* FLImageCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageCacheTest.swift; sourceTree = "<group>"; };
+		8A43E32221F79A8B0015D275 /* FLWebServiceObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLWebServiceObjectTest.swift; sourceTree = "<group>"; };
 		8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageCacheProtocol.swift; sourceTree = "<group>"; };
 		8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageDownloaderProtocol.swift; sourceTree = "<group>"; };
 		8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLImageDownloadTaskProtocol.swift; sourceTree = "<group>"; };
@@ -247,6 +249,14 @@
 			path = ImageCache;
 			sourceTree = "<group>";
 		};
+		8A43E32121F79A6F0015D275 /* WebServiceObject */ = {
+			isa = PBXGroup;
+			children = (
+				8A43E32221F79A8B0015D275 /* FLWebServiceObjectTest.swift */,
+			);
+			path = WebServiceObject;
+			sourceTree = "<group>";
+		};
 		8AEABFD221F39B0F005AC005 = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +295,7 @@
 		8AEABFF221F39B11005AC005 /* FlickerTests */ = {
 			isa = PBXGroup;
 			children = (
+				8A43E32121F79A6F0015D275 /* WebServiceObject */,
 				8A43E31E21F78F5B0015D275 /* ImageCache */,
 				8A43E31B21F76E110015D275 /* HomeCell */,
 				8A43E31821F76CBF0015D275 /* ErrorModel */,
@@ -619,6 +630,7 @@
 				8A03F74721F6594C00764CEC /* FLHomePresenterTest.swift in Sources */,
 				8A43E31D21F76E2E0015D275 /* FLHomeCollectionCellTest.swift in Sources */,
 				8A03F74A21F6650A00764CEC /* FLHomeInteractorTest.swift in Sources */,
+				8A43E32321F79A8B0015D275 /* FLWebServiceObjectTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

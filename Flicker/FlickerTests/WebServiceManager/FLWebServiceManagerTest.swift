@@ -43,6 +43,23 @@ class FLWebServiceManagerTest: XCTestCase {
         XCTAssertNotNil(dataResponse, "Network Data response Found nil")
     }
     
+    func testCreateRequestFailureMethod() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let requestPath = "https://api.com/services/rest/?method=\(WebEngineConstant.flickerPhotoSearchMethod)&api_key=\(WebEngineConstant.flickerPhotoAPIKey)&format=\(WebEngineConstant.flickerPhotoFormat)&nojsoncallback=1&safe_search=1&text=kitten&page=1&per_page=20"
+        
+        let promise = expectation(description: "Completion handler invoked")
+        var err : DataError?
+        serviceManager.createDataRequest(withPath: requestPath, withParam: nil, withCustomHeader: nil, withRequestType: .GET) { (data, error) in
+            err = error
+            promise.fulfill()
+        }
+        
+        waitForExpectations(timeout: 50, handler: nil)
+        
+        XCTAssertNotNil(err, "Network Data Error Found nil")
+    }
+    
     func testCancelAllTasks() {
         serviceManager.cancelAllTasks()
     }

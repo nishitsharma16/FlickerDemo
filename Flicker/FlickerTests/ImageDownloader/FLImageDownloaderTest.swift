@@ -16,7 +16,6 @@ class FLImageDownloaderTest: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
-        imageDownloader = FLImageDownloader.sharedDownloader
     }
     
     override func tearDown() {
@@ -28,8 +27,9 @@ class FLImageDownloaderTest: XCTestCase {
     func testImageDownlad() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        if let imageUrl = URL(string: "http://farm1.static.flickr.com/578/23451156376_8983a8ebc7.jpg") {
+        imageDownloader = FLImageDownloader.sharedDownloader
+
+        if let imageUrl = URL(string: "http://farm8.static.flickr.com/578/23451156376_8983a8ebc7.jpg") {
             
             var request = URLRequest(url: imageUrl)
             request.addValue("image/*", forHTTPHeaderField: "Accept")
@@ -53,7 +53,29 @@ class FLImageDownloaderTest: XCTestCase {
     }
     
     func testClearAllCachedData() {
+        imageDownloader = FLImageDownloader.sharedDownloader
         imageDownloader.clearAllCachedData()
     }
 
+    func testCancelDownload() {
+        imageDownloader = FLImageDownloader.sharedDownloader
+
+        let requestPath = "http://farm1.static.flickr.com/578/23451156376_8983a8ebc7.jpg"
+        if let url = URL(string: requestPath) {
+            let downloadId = UUID().uuidString
+            var request = URLRequest(url: url)
+            request.addValue("image/*", forHTTPHeaderField: "Accept")
+            let size = CGSize(width: 80, height: 80)
+            
+            let downloadStatus = imageDownloader.downLoadImage(withURLRequest: request, downloadID: downloadId, ofSize: size, successCompletion: { (request, response, image) in
+            }) { (request, response, error) in
+                
+            }
+            
+            if let status = downloadStatus {
+                imageDownloader.cancelDownload(forStatus: status)
+            }
+        }
+        
+    }
 }

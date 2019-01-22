@@ -130,6 +130,20 @@ extension FLImageDownloader : FLImageDownloaderProtocol {
     func getImage(forIdentifier identifier : String) -> UIImage? {
         return imageInMemoryCache[identifier]
     }
+    
+    func addTask(dataTask : FLImageDownloadTask, identifier : String) {
+        if let _ = imageDownloadInfo[identifier] {
+        }
+        else {
+            imageDownloadInfo[identifier] = dataTask
+        }
+    }
+    
+    func removeTask(withIdentifier identifier : String) {
+        if let _ = imageDownloadInfo[identifier] {
+            imageDownloadInfo.removeValue(forKey: identifier)
+        }
+    }
 }
 
 // Private Method Extension
@@ -169,19 +183,5 @@ extension FLImageDownloader {
     
     private func removeImage(withIdentifier identifier : String) {
         imageInMemoryCache.removeValue(forKey: identifier)
-    }
-    
-    private func addTask(dataTask : FLImageDownloadTask, identifier : String) {
-        if let _ = imageDownloadInfo[identifier] {
-        }
-        else {
-            imageDownloadInfo[identifier] = dataTask
-        }
-    }
-    
-    private func removeTask(withIdentifier identifier : String) {
-        if let _ = imageDownloadInfo[identifier] {
-            imageDownloadInfo.removeValue(forKey: identifier)
-        }
     }
 }
