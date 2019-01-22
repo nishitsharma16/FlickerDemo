@@ -12,7 +12,7 @@ class FLImageDownloadTask : FLImageDownloadTaskProtocol {
     
     let dataTask : URLSessionDataTask
     private let taskID : String
-    var handlerList : [FLImageTaskHandler] = []
+    private(set) var handlerList : [FLImageTaskHandler] = []
     
     required init(dataTask task : URLSessionDataTask, taskID identifier : String) {
         dataTask = task

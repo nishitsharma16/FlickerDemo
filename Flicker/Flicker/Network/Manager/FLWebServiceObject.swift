@@ -11,7 +11,7 @@ import Foundation
 class FLWebServiceObject : FLWebServiceObjectProtocol {
     let dataTask : URLSessionDataTask
     private let taskID : String
-    var handlerList : [FLWebServiceHandler] = []
+    private(set) var handlerList : [FLWebServiceHandler] = []
     
     required init(dataTask task : URLSessionDataTask, taskID identifier : String) {
         dataTask = task

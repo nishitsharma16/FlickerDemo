@@ -9,5 +9,7 @@
 import Foundation
 
 protocol FLImageDownloadStatusProtocol {
+    var dataTask : URLSessionDataTask { get }
+    var downloadID : String { get }
     init(dataTask task : URLSessionDataTask, downloadID identifier : String)
 }

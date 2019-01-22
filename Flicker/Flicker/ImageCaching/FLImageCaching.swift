@@ -17,7 +17,7 @@ extension UIImageView : FLImageCacheProtocol {
         static var downloadStatus = "img_dwnld_status"
     }
     
-    var imageDownloader: FLImageDownloader {
+    var imageDownloader: FLImageDownloaderProtocol {
         get {
             guard let value = objc_getAssociatedObject(self, &AssociatedKeys.downloaderName) as? FLImageDownloader else {
                     return FLImageDownloader.sharedDownloader
@@ -29,7 +29,7 @@ extension UIImageView : FLImageCacheProtocol {
         }
     }
     
-    var imageDownloadStatus: FLImageDownloadStatus? {
+    var imageDownloadStatus: FLImageDownloadStatusProtocol? {
         get {
             guard let value = objc_getAssociatedObject(self, &AssociatedKeys.downloadStatus) as? FLImageDownloadStatus else {
                 return nil

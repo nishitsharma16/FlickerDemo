@@ -51,5 +51,9 @@ class FLImageDownloaderTest: XCTestCase {
             XCTAssertNotNil(imageVal, "Image Data response Found nil")
         }
     }
+    
+    func testClearAllCachedData() {
+        imageDownloader.clearAllCachedData()
+    }
 
 }

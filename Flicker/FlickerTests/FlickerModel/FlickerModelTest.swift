@@ -34,6 +34,15 @@ class FlickerModelTest: XCTestCase {
         XCTAssertNotNil(flkrModel?.iconImage, "Flicker Icon Image Found nil")
     }
     
+    func testGetFlickerImageUrl() {
+        let jsonObject = self.getJSONObject(fromFile: "FlickerData")
+        let flkrModel : FLDataProtocol? = jsonObject != nil ? FLModel(withData: jsonObject!) : nil
+        let imageURL = flkrModel?.flickerImageURL
+        
+        XCTAssertNotNil(flkrModel, "Flicker Model Found nil")
+        XCTAssertNotNil(imageURL, "Flicker Image URL Found nil")
+    }
+    
     private func getJSONObject(fromFile fileName : String) -> [AnyHashable : Any]? {
         guard let pathURL = Bundle(for: type(of: self)).url(forResource: fileName, withExtension: "json") else {
             return nil

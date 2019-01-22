@@ -15,8 +15,8 @@ final class FLImageDownloader {
     var sessionManager : FLURLSessionManagerProtocol
     private var imageDownloadInfo : [AnyHashable : FLImageDownloadTask] = [:]
     private var imageInMemoryCache : [AnyHashable : UIImage] = [:]
-    let serialQueue = DispatchQueue(label: "com.flicker.demo.app.serialQueue")
-    let concurrentQueue = DispatchQueue(label: "com.flicker.demo.app.concurrentQueue", attributes: .concurrent)
+    private let serialQueue = DispatchQueue(label: "com.flicker.demo.app.serialQueue")
+    private let concurrentQueue = DispatchQueue(label: "com.flicker.demo.app.concurrentQueue", attributes: .concurrent)
 
     private init() {
         sessionManager = FLURLSessionManager()
@@ -102,7 +102,7 @@ extension FLImageDownloader : FLImageDownloaderProtocol {
         }
     }
     
-    func cancelDownload(forStatus downloadStatus : FLImageDownloadStatus) {
+    func cancelDownload(forStatus downloadStatus : FLImageDownloadStatusProtocol) {
         serialQueue.sync {
             if let urlId = downloadStatus.dataTask.originalRequest?.url?.absoluteString {
                 if let downloadTask = imageDownloadInfo[urlId] {

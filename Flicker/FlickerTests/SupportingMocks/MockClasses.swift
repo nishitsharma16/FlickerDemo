@@ -116,7 +116,7 @@ class MockImageDwonloader: FLImageDownloaderProtocol {
         return nil
     }
     
-    func cancelDownload(forStatus downloadStatus : FLImageDownloadStatus) {
+    func cancelDownload(forStatus downloadStatus : FLImageDownloadStatusProtocol) {
         
     }
     
