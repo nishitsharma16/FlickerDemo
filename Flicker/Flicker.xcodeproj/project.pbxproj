@@ -294,6 +294,30 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		8A43E33521F7CC200015D275 /* Caching */ = {
+			isa = PBXGroup;
+			children = (
+				8AEAC03421F3E031005AC005 /* FLImageCaching.swift */,
+				8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */,
+			);
+			path = Caching;
+			sourceTree = "<group>";
+		};
+		8A43E33621F7CC490015D275 /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				8AEAC03621F3E3E1005AC005 /* FLImageDownloader.swift */,
+				8AEAC03B21F44CFE005AC005 /* FLImageDownloadTask.swift */,
+				8AEAC03D21F44E7E005AC005 /* FLImageTaskHandler.swift */,
+				8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */,
+				8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */,
+				8A7F231A21F4C44D00E8A58D /* FLImageTaskHandlerProtocol.swift */,
+				8A7F232721F4F46100E8A58D /* FLImageDownloadStatus.swift */,
+				8A7F232921F4F55B00E8A58D /* FLImageDownloadStatusProtocol.swift */,
+			);
+			path = Downloader;
+			sourceTree = "<group>";
+		};
 		8AEABFD221F39B0F005AC005 = {
 			isa = PBXGroup;
 			children = (
@@ -489,16 +513,8 @@
 		8AEAC03321F3D7C6005AC005 /* ImageCaching */ = {
 			isa = PBXGroup;
 			children = (
-				8AEAC03421F3E031005AC005 /* FLImageCaching.swift */,
-				8AEAC03621F3E3E1005AC005 /* FLImageDownloader.swift */,
-				8AEAC03B21F44CFE005AC005 /* FLImageDownloadTask.swift */,
-				8AEAC03D21F44E7E005AC005 /* FLImageTaskHandler.swift */,
-				8A7F231421F4C32600E8A58D /* FLImageCacheProtocol.swift */,
-				8A7F231621F4C37100E8A58D /* FLImageDownloaderProtocol.swift */,
-				8A7F231821F4C3EB00E8A58D /* FLImageDownloadTaskProtocol.swift */,
-				8A7F231A21F4C44D00E8A58D /* FLImageTaskHandlerProtocol.swift */,
-				8A7F232721F4F46100E8A58D /* FLImageDownloadStatus.swift */,
-				8A7F232921F4F55B00E8A58D /* FLImageDownloadStatusProtocol.swift */,
+				8A43E33621F7CC490015D275 /* Downloader */,
+				8A43E33521F7CC200015D275 /* Caching */,
 			);
 			path = ImageCaching;
 			sourceTree = "<group>";

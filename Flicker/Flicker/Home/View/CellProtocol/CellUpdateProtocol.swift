@@ -1,8 +1,8 @@
 //
 //  CellUpdateProtocol.swift
-//  JPMC
+//  Flicker
 //
-//  Created by B0095764 on 1/8/19.
+//  Created by B0095764 on 1/20/19.
 //  Copyright © 2019 Mine. All rights reserved.
 //
 

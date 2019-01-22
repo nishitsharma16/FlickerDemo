@@ -9,24 +9,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Flicker/ImageCaching/FLImageCaching.swift"
-            timestampString = "569886365.8283859"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "setImage(withUrl:ofSize:withPlaceHolderImage:successCompletion:failureCompletion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FlickerTests/SupportingMocks/MockClasses.swift"
-            timestampString = "569886365.834567"
+            timestampString = "569889407.002139"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -42,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickerTests/SupportingMocks/MockClasses.swift"
-            timestampString = "569886365.836778"
+            timestampString = "569889407.002463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -57,40 +41,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Flicker/Network/SessionManager/FLURLSessionManager.swift"
-            timestampString = "569874847.813867"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "dataTask(withRequest:withCompletion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Flicker/Home/Entity/FLModel.swift"
-            timestampString = "569874156.7537611"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "flickerImageURL"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FlickerTests/FlickerModel/FlickerModelTest.swift"
-            timestampString = "569886365.838498"
+            timestampString = "569889407.002532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -105,46 +57,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Flicker/Network/SessionManager/FLURLSessionManager.swift"
-            timestampString = "569874847.814293"
+            filePath = "FlickerTests/Controller/FLViewControllerTest.swift"
+            timestampString = "569889407.00273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "dataTask(withRequest:withCompletion:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "setUp()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Flicker.FLURLSessionManager.dataTask(withRequest: Foundation.URLRequest, withCompletion: Swift.Optional&lt;(Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()&gt;) -&gt; __C.NSURLSessionDataTask"
-                  moduleName = "Flicker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/B0095764/Desktop/Dev_Assignment/FlickerDemo/FlickerDemo/Flicker/Flicker/Network/SessionManager/FLURLSessionManager.swift"
-                  timestampString = "569885187.5253969"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "85">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Flicker.FLURLSessionManager.dataTask(withRequest: Foundation.URLRequest, withCompletion: Swift.Optional&lt;(Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()&gt;) -&gt; __C.NSURLSessionDataTask"
-                  moduleName = "Flicker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/B0095764/Desktop/Dev_Assignment/FlickerDemo/FlickerDemo/Flicker/Flicker/Network/SessionManager/FLURLSessionManager.swift"
-                  timestampString = "569885187.528038"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "61">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -153,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlickerTests/Controller/FLViewControllerTest.swift"
-            timestampString = "569886365.841933"
+            filePath = "Flicker/Network/SessionManager/FLURLSessionManager.swift"
+            timestampString = "569889407.00292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "setUp()"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "dataTask(withRequest:withCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
