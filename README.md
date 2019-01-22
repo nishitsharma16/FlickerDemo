@@ -1,1 +1,21 @@
 # FlickerDemo
+
+App has following features:
+
+1.  App will fetch flicker data from the server with the given search API.
+
+2.  App will cache data in URL cache.
+
+3.  App will cache Image data InMemory as well as in URL cache.
+
+4.  Have resized Image Size to the cell size for better memory usage.
+
+5.  Using NSURLSession for Network interaction.
+
+6.  App has been covered most of Unit Test Cases.
+
+7.  App is universal.
+
+8.   Min iOS Support is iOS 12.1 and Swift 4.2.
+
+9.   Code is properly documented.
