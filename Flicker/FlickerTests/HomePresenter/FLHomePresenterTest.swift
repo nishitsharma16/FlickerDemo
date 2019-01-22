@@ -19,6 +19,7 @@ class FLHomePresenterTest: XCTestCase {
         super.setUp()
         homePresenter = FLHomePresenter()
         homePresenter.interactor = MockInteractor()
+        homePresenter.interactor?.presenter = homePresenter
     }
     
     override func tearDown() {
@@ -32,17 +33,19 @@ class FLHomePresenterTest: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let serachText = "kitten"
         let page = 1
-        if serachText.count > 0 {
-            homePresenter.interactor?.fetchFlickerData(withQuery: serachText, withPageNumber: page)
-        }
+        homePresenter.getFlickerImages(withQuery: serachText, withPageNumber: page)
     }
     
     func testFlickerDataFetched() {
         let jsonObject = self.getJSONObject(fromFile: "FlickerData")
         let flkrModel : FLDataProtocol = FLModel(withData: jsonObject ?? [:])
         let flickerData : FlickerDataFetchStatus = .success([flkrModel])
-        let mockView = MockView()
+        homePresenter.flickerDataFetched(flickerData: flickerData)
+    }
+    
+    func flickerDataFetched(flickerData : FlickerDataFetchStatus) {
         
+        let mockView = MockView()
         switch flickerData {
         case .success(let dataList):
             mockView.showFlickerImages(imageList: dataList)

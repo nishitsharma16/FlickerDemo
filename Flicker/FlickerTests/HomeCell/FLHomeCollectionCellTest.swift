@@ -1,5 +1,5 @@
 //
-//  FlickerModelTest.swift
+//  FLHomeCollectionCellTest.swift
 //  FlickerTests
 //
 //  Created by B0095764 on 1/22/19.
@@ -9,29 +9,47 @@
 import XCTest
 @testable import Flicker
 
-class FlickerModelTest: XCTestCase {
+class FLHomeCollectionCellTest: XCTestCase {
 
+    var cell : FLHomeCollectionViewCell!
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
     }
-
+    
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        cell = nil
         super.tearDown()
     }
 
-    func testInitializer() {
+    func testUpdateCell() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+        createCell()
+        let jsonObject = self.getJSONObject(fromFile: "FlickerData")
+        let flkrModel : FLDataProtocol? = jsonObject != nil ? FLModel(withData: jsonObject!) : nil
+        cell.updateCell(withData: flkrModel, withStatus: true)
+    }
+    
+    func testUpdateCellWithIconImage() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        createCell()
         let jsonObject = self.getJSONObject(fromFile: "FlickerData")
         let flkrModel : FLDataProtocol? = jsonObject != nil ? FLModel(withData: jsonObject!) : nil
         flkrModel?.iconImage = UIImage()
-        
-        XCTAssertNotNil(flkrModel, "Flicker Model Found nil")
-        XCTAssertNotNil(flkrModel?.flickerImageURL, "Flicker Image URL Found nil")
-        XCTAssertNotNil(flkrModel?.iconImage, "Flicker Icon Image Found nil")
+        cell.updateCell(withData: flkrModel, withStatus: false)
+    }
+    
+    private func createCell() {
+        let flowLayout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        collectionView.register(UINib(nibName: MockViewConstant.MockCellConstant.cellNibName, bundle: nil), forCellWithReuseIdentifier: MockViewConstant.MockCellConstant.cellID)
+        let indexPath = IndexPath(row: 0, section: 1)
+        let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: MockViewConstant.MockCellConstant.cellID, for: indexPath) as! FLHomeCollectionViewCell
+        cell = itemCell
     }
     
     private func getJSONObject(fromFile fileName : String) -> [AnyHashable : Any]? {
@@ -54,4 +72,10 @@ class FlickerModelTest: XCTestCase {
         }
     }
 
+    private struct MockViewConstant {
+        struct MockCellConstant {
+            static let cellID = "FLHomeCollectionCellID"
+            static let cellNibName = "FLHomeCollectionViewCell"
+        }
+    }
 }

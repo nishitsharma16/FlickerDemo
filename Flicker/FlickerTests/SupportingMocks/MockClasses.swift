@@ -28,7 +28,7 @@ class MockInteractor: FLHomeInteratorInputProtocol {
     
     var imageDownloader : FLImageDownloaderProtocol = MockImageDwonloader()
     
-    func fetchFlickerData(withQuery text : String?, withPageNumber page : Int) {
+    func fetchFlickerData(withQuery text : String?, withPageNumber page : Int, itemsPerPage itemCount : Int) {
         
         guard let query = text else {
             cancellAllDownloads()
@@ -43,25 +43,20 @@ class MockInteractor: FLHomeInteratorInputProtocol {
             
             webServiceManager.createDataRequest(withPath: requestPath, withParam: nil, withCustomHeader: nil, withRequestType: .GET) { [weak self] (data, error) in
                 if let dataVal = data {
-                    DispatchQueue.global().async {
-                        
-                        var list : [FLDataProtocol]?
-                        
-                        if let dataObjectInfo = dataVal as? [AnyHashable : Any], let photosInfo = dataObjectInfo["photos"] as? [AnyHashable : Any], let dataList = photosInfo["photo"] as? [Any] {
-                            let builder = DataBuilder<FLModel>()
-                            list = builder.getParsedDataList(withData: dataList)
-                        }
-                        
-                        DispatchQueue.main.async {
-                            if let dataList = list {
-                                self?.presenter?.flickerDataFetched(flickerData: .success(dataList))
-                            }
-                            else {
-                                let noDataError = DataError()
-                                noDataError.errorMessage = Constants.noResultsErrorMessage
-                                self?.presenter?.flickerDataFetched(flickerData: .noData(noDataError))
-                            }
-                        }
+                    var list : [FLDataProtocol]?
+                    
+                    if let dataObjectInfo = dataVal as? [AnyHashable : Any], let photosInfo = dataObjectInfo["photos"] as? [AnyHashable : Any], let dataList = photosInfo["photo"] as? [Any] {
+                        let builder = DataBuilder<FLModel>()
+                        list = builder.getParsedDataList(withData: dataList)
+                    }
+                    
+                    if let dataList = list {
+                        self?.presenter?.flickerDataFetched(flickerData: .success(dataList))
+                    }
+                    else {
+                        let noDataError = DataError()
+                        noDataError.errorMessage = Constants.noResultsErrorMessage
+                        self?.presenter?.flickerDataFetched(flickerData: .noData(noDataError))
                     }
                 }
                 else {
@@ -83,13 +78,15 @@ class MockInteractor: FLHomeInteratorInputProtocol {
 
 class MockWebserviceManager: FLWebEngineDataDownloader {
     
+    var taskInfo = [AnyHashable : FLWebServiceObject]()
+    
     func createDataRequest(withPath path : String, withParam param: [AnyHashable : Any]?, withCustomHeader headers : [String : String]?, withRequestType type : RequestType, withCompletion completion : @escaping (Any?, DataError?) -> Void) {
         let jsonObject = self.getJSONObject(fromFile: "FlickerDataList")
         completion(jsonObject, nil)
     }
     
     func cancelAllTasks() {
-        
+        taskInfo.removeAll()
     }
     
     private func getJSONObject(fromFile fileName : String) -> [AnyHashable : Any]? {
@@ -115,7 +112,7 @@ class MockWebserviceManager: FLWebEngineDataDownloader {
 
 class MockImageDwonloader: FLImageDownloaderProtocol {
     
-    func downLoadImage(withURLRequest request : URLRequest, downloadID identifier : String, successCompletion : @escaping (URLRequest, URLResponse?, UIImage?) -> Void, failureCompletion : @escaping (URLRequest, URLResponse?, Error?) -> Void) -> FLImageDownloadStatus? {
+    func downLoadImage(withURLRequest request : URLRequest, downloadID identifier : String, ofSize newSize : CGSize, successCompletion : @escaping (URLRequest, URLResponse?, UIImage?) -> Void, failureCompletion : @escaping (URLRequest, URLResponse?, Error?) -> Void) -> FLImageDownloadStatus? {
         return nil
     }
     
@@ -136,6 +133,9 @@ class MockPresenter: FLHomeInteratorOutputProtocol, FLHomePresenterInputProtocol
     
     var view : FLHomePresenterOutputProtocol?
     var interactor : FLHomeInteratorInputProtocol?
+    var numberOfItemsPerRow: Int{
+        return 3
+    }
     
     func getFlickerImages(withQuery text : String?, withPageNumber page : Int) {
         
@@ -144,4 +144,16 @@ class MockPresenter: FLHomeInteratorOutputProtocol, FLHomePresenterInputProtocol
     func flickerDataFetched(flickerData : FlickerDataFetchStatus) {
         
     }
+    
+    func numberOfItems(forScreenSize size : CGSize, itemSize : CGSize) {
+        
+    }
+    
+    func itemSize(withScreenWidth width : CGFloat) -> CGSize {
+        return CGSize(width: 80, height: 80)
+    }
+}
+
+class ErrorObject: Error {
+    
 }

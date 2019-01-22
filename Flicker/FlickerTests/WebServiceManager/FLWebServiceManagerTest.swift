@@ -42,5 +42,9 @@ class FLWebServiceManagerTest: XCTestCase {
         
         XCTAssertNotNil(dataResponse, "Network Data response Found nil")
     }
+    
+    func testCancelAllTasks() {
+        serviceManager.cancelAllTasks()
+    }
 
 }
