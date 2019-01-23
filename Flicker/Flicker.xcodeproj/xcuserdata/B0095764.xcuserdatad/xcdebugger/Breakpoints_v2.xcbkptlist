@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickerTests/FlickerModel/FlickerModelTest.swift"
-            timestampString = "569953526.8155"
+            timestampString = "569954119.15527"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flicker/Home/View/Controller/ViewController.swift"
-            timestampString = "569953526.81642"
+            timestampString = "569954119.155449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "updateCollectionLayout()"
             landmarkType = "7">
          </BreakpointContent>

@@ -84,6 +84,9 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource 
 extension ViewController : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count == 0 {
+            pageNumber = 1
+        }
         presenter?.getFlickerImages(withQuery: searchText, withPageNumber: pageNumber)
     }
 }
