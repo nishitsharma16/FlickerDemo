@@ -20,6 +20,6 @@ App has following features:
 
 9.   Code is properly documented.
 
-10. App has code coverage of 82.9%.
+10. App has code coverage of 81.0%.
 
 11. Designed with VIPER design pattern.
