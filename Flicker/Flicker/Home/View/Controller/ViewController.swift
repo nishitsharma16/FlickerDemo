@@ -26,32 +26,26 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Flicker Image Search"
         
-        let screenSize = view.bounds.size
-        let flowLayout : UICollectionViewFlowLayout? = collection?.collectionViewLayout as? UICollectionViewFlowLayout
-        flowLayout?.minimumLineSpacing = 5
-        flowLayout?.minimumInteritemSpacing = 5
-        
-        if let presenterVal = presenter {
-            
-            let interSpacing = flowLayout?.minimumInteritemSpacing ?? 0
-            let inset = flowLayout?.sectionInset
-            let leftPadding = inset?.left ?? 0
-            let rightPadding = inset?.right ?? 0
-            
-            let val = CGFloat(presenterVal.numberOfItemsPerRow - 1)
-            let availableWidth = screenSize.width - (val*interSpacing + leftPadding + rightPadding)
-            
-            let itemSize = presenterVal.itemSize(withScreenWidth: availableWidth)
-            presenterVal.numberOfItems(forScreenSize: CGSize(width: availableWidth, height: screenSize.height), itemSize: itemSize)
-            flowLayout?.itemSize = itemSize
-        }
+        updateCollectionLayout()
         
         collection.register(UINib(nibName: ViewConstant.CellConstant.cellNibName, bundle: nil), forCellWithReuseIdentifier: ViewConstant.CellConstant.cellID)
     }
     
+    
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        collection.collectionViewLayout.invalidateLayout()
+        
+        let page = pageNumber
+        let text = searchBar.text
+        
+        coordinator.animate(alongsideTransition: { (context) in
+            
+        }) { [weak self] (context) in
+            self?.collection.collectionViewLayout.invalidateLayout()
+            self?.updateCollectionLayout()
+            self?.presenter?.getFlickerImages(withQuery: text , withPageNumber: page)
+        }
     }
 }
 
@@ -136,6 +130,28 @@ extension ViewController {
                     }
                 }
             }
+        }
+    }
+    
+    private func updateCollectionLayout() {
+        let screenSize = view.bounds.size
+        let flowLayout : UICollectionViewFlowLayout? = collection?.collectionViewLayout as? UICollectionViewFlowLayout
+        flowLayout?.minimumLineSpacing = 5
+        flowLayout?.minimumInteritemSpacing = 5
+        
+        if let presenterVal = presenter {
+            
+            let interSpacing = flowLayout?.minimumInteritemSpacing ?? 0
+            let inset = flowLayout?.sectionInset
+            let leftPadding = inset?.left ?? 0
+            let rightPadding = inset?.right ?? 0
+            
+            let val = CGFloat(presenterVal.numberOfItemsPerRow - 1)
+            let availableWidth = screenSize.width - (val*interSpacing + leftPadding + rightPadding)
+            
+            let itemSize = presenterVal.itemSize(withScreenWidth: availableWidth)
+            presenterVal.numberOfItems(forScreenSize: CGSize(width: availableWidth, height: screenSize.height), itemSize: itemSize)
+            flowLayout?.itemSize = itemSize
         }
     }
 }
