@@ -39,7 +39,6 @@ class FLHomeCollectionCellTest: XCTestCase {
         createCell()
         let jsonObject = self.getJSONObject(fromFile: "FlickerData")
         let flkrModel : FLDataProtocol? = jsonObject != nil ? FLModel(withData: jsonObject!) : nil
-        flkrModel?.iconImage = UIImage()
         cell.updateCell(withData: flkrModel, withStatus: false)
     }
     

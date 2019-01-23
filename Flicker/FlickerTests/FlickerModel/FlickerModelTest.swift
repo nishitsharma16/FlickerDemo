@@ -27,11 +27,9 @@ class FlickerModelTest: XCTestCase {
         
         let jsonObject = self.getJSONObject(fromFile: "FlickerData")
         let flkrModel : FLDataProtocol? = jsonObject != nil ? FLModel(withData: jsonObject!) : nil
-        flkrModel?.iconImage = UIImage()
         
         XCTAssertNotNil(flkrModel, "Flicker Model Found nil")
         XCTAssertNotNil(flkrModel?.flickerImageURL, "Flicker Image URL Found nil")
-        XCTAssertNotNil(flkrModel?.iconImage, "Flicker Icon Image Found nil")
     }
     
     func testGetFlickerImageUrl() {
