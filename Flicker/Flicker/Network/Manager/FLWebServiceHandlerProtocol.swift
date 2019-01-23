@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Protocol is to provide requirements for making any object as callback object for webservice made to server.
+ */
+
 protocol FLWebServiceHandlerProtocol {
      init(withCompletion completion : @escaping (Any?, DataError?) -> Void)
 }

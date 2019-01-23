@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Protocol is to provide requirements for making any type as status type for webservice made to server.
+ */
+
 protocol FLImageDownloadStatusProtocol {
     var dataTask : URLSessionDataTask { get }
     var downloadID : String { get }

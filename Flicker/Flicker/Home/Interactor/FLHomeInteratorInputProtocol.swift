@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Protocol is to provide requirements for making any object home interactor to give input to presenter.
+ */
+
 protocol FLHomeInteratorInputProtocol : AnyObject {
     var presenter : FLHomeInteratorOutputProtocol? { get set }
     func fetchFlickerData(withQuery text : String?, withPageNumber page : Int, itemsPerPage itemCount : Int)

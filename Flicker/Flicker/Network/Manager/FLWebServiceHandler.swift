@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Type is used for webservice callback made to server.
+ */
+
 class FLWebServiceHandler : NSObject, FLWebServiceHandlerProtocol {
     let completionBlock : (Any?, DataError?) -> Void
     

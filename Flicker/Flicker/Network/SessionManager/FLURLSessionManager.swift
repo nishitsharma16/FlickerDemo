@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Type is used for fetching, uploading data from or to any API from the server.
+ */
+
 class FLURLSessionManager {
     
     private let urlSession : URLSession

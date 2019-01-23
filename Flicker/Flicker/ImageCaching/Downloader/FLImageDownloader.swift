@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ This Type is used for fetching image data from given URL.
+ */
+
 final class FLImageDownloader {
     
     static let sharedDownloader = FLImageDownloader()

@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ This Type is used for view of home page.
+ */
+
 class ViewController: UIViewController {
 
     var presenter : FLHomePresenterInputProtocol?

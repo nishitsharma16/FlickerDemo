@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ This Type is used for presenter for home controller to talk to interactor for fetching data and showing the data to view.
+ */
+
 class FLHomePresenter : FLHomePresenterInputProtocol, FLHomeInteratorOutputProtocol {
     
     weak var view : FLHomePresenterOutputProtocol?

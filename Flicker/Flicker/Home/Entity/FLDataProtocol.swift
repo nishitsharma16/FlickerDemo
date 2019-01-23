@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ This Protocol is to provide requirements for making any object as flicker mpdel objects.
+ */
+
 protocol FLDataProtocol : AnyObject {
     var flickerImageURL : URL? { get }
     var iconImage : UIImage? { get set }

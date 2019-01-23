@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ This Type is used for view image data in collection view cell.
+ */
+
 class FLHomeCollectionViewCell: UICollectionViewCell, CellUpdateProtocol {
 
     @IBOutlet weak var cellImageView: UIImageView!

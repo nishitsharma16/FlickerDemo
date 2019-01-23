@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import ObjectiveC.runtime
 
+/**
+ This extension has been made on UIImageView to call direct methods for image downloads for image url.
+ */
+
 extension UIImageView : FLImageCacheProtocol {
     
     var imageDownloader: FLImageDownloaderProtocol {

@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Type is used for interactor for home controller to talk to server or data provider for fetching data and pass it to presenter.
+ */
+
 class FLHomeInteractor : FLHomeInteratorInputProtocol {
     
     weak var presenter : FLHomeInteratorOutputProtocol?

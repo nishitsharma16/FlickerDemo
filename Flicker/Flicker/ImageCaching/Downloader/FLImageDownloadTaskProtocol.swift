@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Protocol is to provide requirements for making any object as webservice object for tracking webservice made to server.
+ */
+
 protocol FLImageDownloadTaskProtocol {
     init(dataTask task : URLSessionDataTask, taskID identifier : String)
     func addTaskHandler(handler : FLImageTaskHandler)

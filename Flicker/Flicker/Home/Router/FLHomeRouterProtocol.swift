@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Protocol is to provide requirements for making any object as router of creating, pushing and presenting view (view controller).
+ */
+
 protocol FLHomeRouterProtocol {
     static func initializeHomeController() -> ViewController
 }

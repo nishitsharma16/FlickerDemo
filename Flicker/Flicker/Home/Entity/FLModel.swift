@@ -23,6 +23,10 @@ import UIKit
  }
  */
 
+/**
+ This Type is used for model objects of Flicker image objects.
+ */
+
 class FLModel : DataInitializer, FLDataProtocol {
     
     private let modeId : String?

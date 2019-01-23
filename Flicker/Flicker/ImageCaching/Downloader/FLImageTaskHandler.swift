@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ This Type is used for webservice callback made to server.
+ */
+
 class FLImageTaskHandler : NSObject, FLImageTaskHandlerProtocol {
     
     private(set) var dwnldID : String

@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Type is used for tracking webservice made to server.
+ */
+
 class FLImageDownloadTask : FLImageDownloadTaskProtocol {
     
     let dataTask : URLSessionDataTask

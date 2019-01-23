@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ This Protocol is to provide requirements for making any UIImageView object for downloading images from server.
+ */
+
 protocol FLImageCacheProtocol {
     func setImage(withUrl imageURL : URL, ofSize newSize : CGSize)
     func setImage(withUrl imageURL : URL, ofSize newSize : CGSize, withPlaceHolderImage placeHolderImage : UIImage?)

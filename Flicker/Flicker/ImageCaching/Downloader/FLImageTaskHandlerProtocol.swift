@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ This Protocol is to provide requirements for making any object as callback object for webservice made to server.
+ */
+
 protocol FLImageTaskHandlerProtocol {
     init(downloadId identifier : String, success : @escaping (URLRequest, URLResponse?, UIImage?) -> Void, failure : @escaping (URLRequest, URLResponse?, Error?) -> Void)
 }

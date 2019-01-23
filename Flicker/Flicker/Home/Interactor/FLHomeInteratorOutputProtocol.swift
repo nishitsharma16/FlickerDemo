@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Protocol is to provide requirements for making any object home interactor to give output to presenter.
+ */
+
 enum FlickerDataFetchStatus {
     case success([FLDataProtocol])
     case noData(DataError)

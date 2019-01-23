@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Type is used for status tracking for image download service.
+ */
+
 class FLImageDownloadStatus : FLImageDownloadStatusProtocol {
     
     let dataTask : URLSessionDataTask

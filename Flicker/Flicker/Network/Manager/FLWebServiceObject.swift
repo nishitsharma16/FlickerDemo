@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Type is used for tracking webservice made to server.
+ */
+
 class FLWebServiceObject : FLWebServiceObjectProtocol {
     
     let dataTask : URLSessionDataTask

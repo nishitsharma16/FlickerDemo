@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ This Protocol is to provide requirements for making any object home presenter to give input to view.
+ */
+
 protocol FLHomePresenterInputProtocol : AnyObject {
     var view : FLHomePresenterOutputProtocol? { get set }
     var numberOfItemsPerRow : Int { get }

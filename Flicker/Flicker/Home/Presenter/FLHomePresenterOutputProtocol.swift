@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This Protocol is to provide requirements for making any object home presenter to give out to view.
+ */
+
 protocol FLHomePresenterOutputProtocol : AnyObject {
     func showFlickerImages(imageList : [FLDataProtocol]?)
     func showError(errorMessage : String)

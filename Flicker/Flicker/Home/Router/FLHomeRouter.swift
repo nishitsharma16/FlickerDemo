@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ This Type is used for routing view or view controller objects for pushing and presenting.
+ */
+
 class FLHomeRouter : FLHomeRouterProtocol {
     
     static func initializeHomeController() -> ViewController {
@@ -24,8 +28,6 @@ class FLHomeRouter : FLHomeRouterProtocol {
         
         return view
     }
-    
-    
 }
 
 // Private Method Extension
