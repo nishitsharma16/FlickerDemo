@@ -112,6 +112,8 @@ extension ViewController : UIScrollViewDelegate {
     }
 }
 
+// Private Method Extension
+
 extension ViewController {
     private func loadImagesForVisibleRows() {
         if let list = self.dataList, list.count > 0 {
