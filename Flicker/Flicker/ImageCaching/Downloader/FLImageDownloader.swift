@@ -23,7 +23,14 @@ final class FLImageDownloader {
     private let concurrentQueue = DispatchQueue(label: "com.flicker.demo.app.concurrentQueue", attributes: .concurrent)
 
     private init() {
-        sessionManager = FLURLSessionManager()
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.urlCache = FLImageDownloader.urlCache()
+        sessionManager = FLURLSessionManager.sessionManager(withConfiguration: sessionConfig)
+    }
+    
+    private static func urlCache() -> URLCache {
+        let urlCache = URLCache(memoryCapacity: 50*1024*1024, diskCapacity: 200*1024*1024, diskPath: "com.flickerimage.downloader")
+        return urlCache
     }
 }
 

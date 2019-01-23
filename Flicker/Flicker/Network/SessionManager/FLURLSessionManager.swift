@@ -22,6 +22,20 @@ class FLURLSessionManager {
         opQueue.maxConcurrentOperationCount = 1
         urlSession = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: opQueue)
     }
+    
+    init(withConfiguration config : URLSessionConfiguration) {
+        let opQueue = OperationQueue()
+        opQueue.maxConcurrentOperationCount = 1
+        urlSession = URLSession(configuration: config, delegate: nil, delegateQueue: opQueue)
+    }
+    
+    static func defaultURLSessionManager() -> FLURLSessionManager {
+        return FLURLSessionManager()
+    }
+    
+    static func sessionManager(withConfiguration sessionConfig : URLSessionConfiguration) -> FLURLSessionManager {
+        return FLURLSessionManager(withConfiguration: sessionConfig)
+    }
 }
 
 extension FLURLSessionManager : FLURLSessionManagerProtocol {

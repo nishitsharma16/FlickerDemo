@@ -18,7 +18,6 @@ class FLSessionManagerTest: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
-        sessionManager = FLURLSessionManager()
     }
     
     override func tearDown() {
@@ -28,6 +27,8 @@ class FLSessionManagerTest: XCTestCase {
     }
 
     func testGetFirstDataTaskMethod() {
+        sessionManager = FLURLSessionManager()
+
         let requestPath = "\(WebEngineConstant.flickerServicePath)?method=\(WebEngineConstant.flickerPhotoSearchMethod)&api_key=\(WebEngineConstant.flickerPhotoAPIKey)&format=\(WebEngineConstant.flickerPhotoFormat)&nojsoncallback=1&safe_search=1&text=kitten&page=1&per_page=20"
         let promise = expectation(description: "Completion handler invoked")
         var dataResponse : Any?
@@ -47,6 +48,8 @@ class FLSessionManagerTest: XCTestCase {
     }
     
     func testGetFirstDataTaskWithErrorMethod() {
+        sessionManager = FLURLSessionManager()
+
         let requestPath = "https://api.flickr.com/services/rest/ method=\(WebEngineConstant.flickerPhotoSearchMethod)&api_key=\(WebEngineConstant.flickerPhotoAPIKey)&format=\(WebEngineConstant.flickerPhotoFormat)&nojsoncallback=1.0&safe_search=1&text=kitten&page=1&per_page=20"
         let promise = expectation(description: "Completion handler invoked")
         var err : Error?
@@ -63,6 +66,8 @@ class FLSessionManagerTest: XCTestCase {
     }
     
     func testGetSecondDataTaskMethod() {
+        sessionManager = FLURLSessionManager()
+
        let requestPath = "https://api.flickr.com/services/rest/ method=\(WebEngineConstant.flickerPhotoSearchMethod)&api_key=\(WebEngineConstant.flickerPhotoAPIKey)&format=\(WebEngineConstant.flickerPhotoFormat)&nojsoncallback=1.0&safe_search=1&text=kitten&page=1&per_page=20"
         if let url = URL(string: requestPath) {
             
@@ -103,5 +108,16 @@ class FLSessionManagerTest: XCTestCase {
             
             XCTAssertNotNil(err, "Network Data Error Found nil")
         }
+    }
+    
+    func testDefaultSession() {
+        sessionManager = FLURLSessionManager.defaultURLSessionManager()
+        XCTAssertNotNil(sessionManager, "Network Session Found nil")
+    }
+    
+    func testDefaultSessionWithConfig() {
+        let sessionConfig = URLSessionConfiguration.default
+        sessionManager = FLURLSessionManager.sessionManager(withConfiguration: sessionConfig)
+        XCTAssertNotNil(sessionManager, "Network Session Found nil")
     }
 }
