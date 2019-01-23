@@ -120,13 +120,8 @@ extension ViewController {
             let visibleItems = collection.indexPathsForVisibleItems
             for indexPath in visibleItems {
                 let iconObj = dataList?[indexPath.row]
-                if let _ = iconObj?.iconImage {
-                    
-                }
-                else {
-                    if let itemCell = collection.cellForItem(at: indexPath) as? FLHomeCollectionViewCell {
-                        itemCell.updateCell(withData: iconObj, withStatus: true)
-                    }
+                if let itemCell = collection.cellForItem(at: indexPath) as? FLHomeCollectionViewCell {
+                    itemCell.updateCell(withData: iconObj, withStatus: true)
                 }
             }
         }

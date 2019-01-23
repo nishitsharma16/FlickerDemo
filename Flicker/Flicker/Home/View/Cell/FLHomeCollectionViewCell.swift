@@ -21,22 +21,14 @@ class FLHomeCollectionViewCell: UICollectionViewCell, CellUpdateProtocol {
     }
     
     func updateCell(withData data : FLDataProtocol?, withStatus status : Bool) {
-        if let iconImage = data?.iconImage {
-            cellImageView.image = iconImage
-        }
-        else {
-            if status {
-                let placeHolderImage = UIImage(named: "placeholder")
-                cellImageView.image = placeHolderImage
-                if let url = data?.flickerImageURL {
-                    let size = cellImageView.bounds.size
-                    cellImageView.setImage(withUrl: url, ofSize : size, withPlaceHolderImage: placeHolderImage, successCompletion: { [weak self, weak data] (request, response, image) in
-                        data?.iconImage = image
-                        self?.cellImageView.image = image
-                    }) { (request, response, error) in
-                        
-                    }
-                }
+        let placeHolderImage = UIImage(named: "placeholder")
+        cellImageView.image = placeHolderImage
+        if let url = data?.flickerImageURL {
+            let size = cellImageView.bounds.size
+            cellImageView.setImage(withUrl: url, ofSize : size, withPlaceHolderImage: placeHolderImage, successCompletion: { [weak self] (request, response, image) in
+                self?.cellImageView.image = image
+            }) { (request, response, error) in
+                
             }
         }
     }

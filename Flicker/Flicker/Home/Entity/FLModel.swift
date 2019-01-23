@@ -42,9 +42,7 @@ class FLModel : DataInitializer, FLDataProtocol {
     var flickerImageURL : URL? {
         return URL(string: "http://farm\(farm ?? 0).static.flickr.com/\(server ?? "")/\(modeId ?? "")_\(secret ?? "").jpg")
     }
-    
-    var iconImage : UIImage?
-    
+        
     /**
      This method will be used for initializing Planet object from JSON object.
      - Parameter data: data is the JSON object.

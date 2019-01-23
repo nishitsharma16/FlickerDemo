@@ -15,5 +15,4 @@ import UIKit
 
 protocol FLDataProtocol : AnyObject {
     var flickerImageURL : URL? { get }
-    var iconImage : UIImage? { get set }
 }
