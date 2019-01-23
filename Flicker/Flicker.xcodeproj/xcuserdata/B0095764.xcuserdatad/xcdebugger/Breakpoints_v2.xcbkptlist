@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flicker/Home/View/Controller/ViewController.swift"
-            timestampString = "569930031.599877"
+            timestampString = "569939566.038612"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "ViewController"
             landmarkType = "21">
          </BreakpointContent>

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  This Type to define different type of requests.
@@ -27,6 +28,7 @@ final class FLWebServiceManager : FLURLSessionManager {
     
     static let sharedInstance = FLWebServiceManager()
     private var webServiceObjectInfo : [AnyHashable : FLWebServiceObject] = [:]
+    private var activityCounter = 0
 
     private override init() {
         super.init()
@@ -62,6 +64,8 @@ extension FLWebServiceManager : FLWebEngineDataDownloader {
             task.removeAllHandler()
         }
         webServiceObjectInfo.removeAll()
+        activityCounter = 0
+        updateNetworkActibityIndicator()
     }
 }
 
@@ -162,13 +166,32 @@ extension FLWebServiceManager {
         }
         else {
             webServiceObjectInfo[identifier] = serviceObject
+            incrementActivityCount()
         }
     }
     
     private func removeServiceObject(withIdentifier identifier : String) {
         if let _ = webServiceObjectInfo[identifier] {
             webServiceObjectInfo.removeValue(forKey: identifier)
+            decrementActivityCount()
         }
+    }
+    
+    private func decrementActivityCount() {
+        activityCounter -= 1
+        if activityCounter < 0 {
+            activityCounter = 0
+        }
+        updateNetworkActibityIndicator()
+    }
+    
+    private func incrementActivityCount() {
+        activityCounter += 1
+        updateNetworkActibityIndicator()
+    }
+    
+    private func updateNetworkActibityIndicator() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = (activityCounter > 0)
     }
 }
 
