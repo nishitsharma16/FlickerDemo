@@ -36,15 +36,12 @@ class ViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
-        let page = pageNumber
-        let text = searchBar.text
-        
         coordinator.animate(alongsideTransition: { (context) in
             
         }) { [weak self] (context) in
             self?.collection.collectionViewLayout.invalidateLayout()
             self?.updateCollectionLayout()
-            self?.presenter?.getFlickerImages(withQuery: text , withPageNumber: page)
+            self?.collection.reloadData()
         }
     }
 }
