@@ -25,7 +25,16 @@ class FLHomeRouter : FLHomeRouterProtocol {
         return view
     }
     
+    
+}
+
+// Private Method Extension
+
+extension FLHomeRouter {
+    
     private static var mainstoryboard: UIStoryboard {
         return UIStoryboard(name:"Main",bundle: Bundle.main)
     }
 }
+
+

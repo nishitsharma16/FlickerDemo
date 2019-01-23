@@ -12,11 +12,6 @@ import ObjectiveC.runtime
 
 extension UIImageView : FLImageCacheProtocol {
     
-    private struct AssociatedKeys {
-        static var downloaderName = "img_dwnld_name"
-        static var downloadStatus = "img_dwnld_status"
-    }
-    
     var imageDownloader: FLImageDownloaderProtocol {
         get {
             guard let value = objc_getAssociatedObject(self, &AssociatedKeys.downloaderName) as? FLImageDownloader else {
@@ -115,10 +110,15 @@ extension UIImageView : FLImageCacheProtocol {
         }
     }
     
-    func clearDownloadStatus() {
+    private func clearDownloadStatus() {
         if let _ = imageDownloadStatus {
             imageDownloadStatus = nil
         }
+    }
+    
+    private struct AssociatedKeys {
+        static var downloaderName = "img_dwnld_name"
+        static var downloadStatus = "img_dwnld_status"
     }
 }
 

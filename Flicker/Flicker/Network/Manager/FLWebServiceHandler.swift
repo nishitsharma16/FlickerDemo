@@ -9,7 +9,7 @@
 import Foundation
 
 class FLWebServiceHandler : NSObject, FLWebServiceHandlerProtocol {
-    private(set) var completionBlock : (Any?, DataError?) -> Void
+    let completionBlock : (Any?, DataError?) -> Void
     
     required init(withCompletion completion : @escaping (Any?, DataError?) -> Void) {
         completionBlock = completion

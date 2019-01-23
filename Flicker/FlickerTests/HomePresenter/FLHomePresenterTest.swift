@@ -43,6 +43,16 @@ class FLHomePresenterTest: XCTestCase {
         homePresenter.flickerDataFetched(flickerData: flickerData)
     }
     
+    func testFlickerNoDataFetched() {
+        let flickerData : FlickerDataFetchStatus = .noData(DataError())
+        homePresenter.flickerDataFetched(flickerData: flickerData)
+    }
+    
+    func testFlickerDataFetchedError() {
+        let flickerData : FlickerDataFetchStatus = .error(DataError())
+        homePresenter.flickerDataFetched(flickerData: flickerData)
+    }
+    
     func flickerDataFetched(flickerData : FlickerDataFetchStatus) {
         
         let mockView = MockView()

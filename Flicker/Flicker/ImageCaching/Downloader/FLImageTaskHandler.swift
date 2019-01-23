@@ -21,9 +21,3 @@ class FLImageTaskHandler : NSObject, FLImageTaskHandlerProtocol {
         failureCallBack = failure
     }
 }
-
-//extension FLImageTaskHandler : Equatable {
-//    static func == (lhs: FLImageTaskHandler, rhs: FLImageTaskHandler) -> Bool {
-//        return lhs.failureCallBack === rhs.failureCallBack && lhs.successCallBack === rhs.successCallBack
-//    }
-//}

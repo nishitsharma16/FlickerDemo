@@ -9,6 +9,7 @@
 import Foundation
 
 class FLWebServiceObject : FLWebServiceObjectProtocol {
+    
     let dataTask : URLSessionDataTask
     private let taskID : String
     private(set) var handlerList : [FLWebServiceHandler] = []

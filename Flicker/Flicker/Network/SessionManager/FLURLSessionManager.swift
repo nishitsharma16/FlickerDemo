@@ -10,7 +10,7 @@ import Foundation
 
 class FLURLSessionManager {
     
-    var urlSession : URLSession
+    private let urlSession : URLSession
     
     init() {
         let sessionConfig = URLSessionConfiguration.default
