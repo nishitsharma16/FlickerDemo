@@ -2,11 +2,11 @@
 
 App has following features:
 
-1.  App will fetch flicker data from the server with the given search API.
+1.  App will fetch flicker data from the server with the given search API and show in 3 column grid.
 
 2.  App will cache data in URL cache.
 
-3.  App will cache Image data InMemory as well as in URL cache.
+3.  App will cache Image data InMemory and on disk as well as in URL cache.
 
 4.  Have resized Image Size to the cell size for better memory usage.
 
@@ -20,6 +20,6 @@ App has following features:
 
 9.   Code is properly documented.
 
-10. App has code coverage of 82.1%.
+10. App has code coverage of 82.9%.
 
 11. Designed with VIPER design pattern.
